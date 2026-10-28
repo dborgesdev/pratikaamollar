@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28T21:08:13.853Z",
+  "conditionalHtml": {
+    "status": 200,
+    "bytes": 4421,
+    "etag": null
+  },
+  "actions": [
+    {
+      "path": "/api/store/cart",
+      "status": 200,
+      "totalMs": 1450,
+      "items": 0,
+      "cache": "no-store",
+      "serverTiming": "wc;dur=1328.0"
+    },
+    {
+      "path": "/api/store/cart/add-item",
+      "status": 400,
+      "totalMs": 1256,
+      "items": null,
+      "cache": "no-store",
+      "serverTiming": "wc;dur=1185.0"
+    },
+    {
+      "path": "/api/store/cart/add-item",
+      "status": 201,
+      "totalMs": 1471,
+      "items": 1,
+      "cache": "no-store",
+      "serverTiming": "wc;dur=1354.0"
+    },
+    {
+      "path": "/api/store/cart/update-item",
+      "status": 200,
+      "totalMs": 1340,
+      "items": 2,
+      "cache": "no-store",
+      "serverTiming": "wc;dur=1278.0"
+    },
+    {
+      "path": "/api/handoff",
+      "status": 503,
+      "totalMs": 200,
+      "items": null,
+      "cache": "no-store",
+      "serverTiming": null
+    },
+    {
+      "path": "/api/store/cart/remove-item",
+      "status": 200,
+      "totalMs": 1306,
+      "items": 0,
+      "cache": "no-store",
+      "serverTiming": "wc;dur=1196.0"
+    }
+  ],
+  "note": "Real isolated Woo session; token intentionally omitted from report; cart cleared; no orders or payments."
+}

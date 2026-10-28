@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-28T20:39:51.355Z",
+  "context": "Published baseline before changes; real WooCommerce; decoded bytes, not compressed wire bytes",
+  "runs": [
+    {
+      "run": 1,
+      "products": 11,
+      "productsAvailableMs": 10052,
+      "initialDataMs": 10052,
+      "processingMs": 0.12589999999909196,
+      "catalogRequests": 5,
+      "cartRequests": 1,
+      "requests": [
+        {
+          "path": "/api/store/products?per_page=100",
+          "status": 200,
+          "ttfbMs": 4510,
+          "totalMs": 4620,
+          "decodedBytes": 152217,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=4149.0"
+        },
+        {
+          "path": "/api/store/products/categories?per_page=100",
+          "status": 200,
+          "ttfbMs": 1594,
+          "totalMs": 1599,
+          "decodedBytes": 3847,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=1404.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=98",
+          "status": 200,
+          "ttfbMs": 1486,
+          "totalMs": 1487,
+          "decodedBytes": 28940,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=1413.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=74",
+          "status": 200,
+          "ttfbMs": 5246,
+          "totalMs": 5250,
+          "decodedBytes": 50975,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=5138.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=73",
+          "status": 200,
+          "ttfbMs": 2901,
+          "totalMs": 2999,
+          "decodedBytes": 72389,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2808.0"
+        },
+        {
+          "path": "/api/store/cart",
+          "status": 200,
+          "ttfbMs": 3155,
+          "totalMs": 3155,
+          "decodedBytes": 1080,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2768.0"
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "products": 11,
+      "productsAvailableMs": 9966,
+      "initialDataMs": 9966,
+      "processingMs": 0.012599999998201383,
+      "catalogRequests": 5,
+      "cartRequests": 1,
+      "requests": [
+        {
+          "path": "/api/store/products?per_page=100",
+          "status": 200,
+          "ttfbMs": 2648,
+          "totalMs": 2654,
+          "decodedBytes": 152217,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2601.0"
+        },
+        {
+          "path": "/api/store/products/categories?per_page=100",
+          "status": 200,
+          "ttfbMs": 5989,
+          "totalMs": 5990,
+          "decodedBytes": 3847,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=5922.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=98",
+          "status": 200,
+          "ttfbMs": 2660,
+          "totalMs": 2662,
+          "decodedBytes": 28940,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2585.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=74",
+          "status": 200,
+          "ttfbMs": 3972,
+          "totalMs": 3974,
+          "decodedBytes": 50975,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=3886.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=73",
+          "status": 200,
+          "ttfbMs": 1405,
+          "totalMs": 1407,
+          "decodedBytes": 72389,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=1345.0"
+        },
+        {
+          "path": "/api/store/cart",
+          "status": 200,
+          "ttfbMs": 4443,
+          "totalMs": 4443,
+          "decodedBytes": 1080,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=4371.0"
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "products": 11,
+      "productsAvailableMs": 7729,
+      "initialDataMs": 7729,
+      "processingMs": 0.012200000001030276,
+      "catalogRequests": 5,
+      "cartRequests": 1,
+      "requests": [
+        {
+          "path": "/api/store/products?per_page=100",
+          "status": 200,
+          "ttfbMs": 3743,
+          "totalMs": 3908,
+          "decodedBytes": 152217,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=3564.0"
+        },
+        {
+          "path": "/api/store/products/categories?per_page=100",
+          "status": 200,
+          "ttfbMs": 1288,
+          "totalMs": 1288,
+          "decodedBytes": 3847,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=1218.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=98",
+          "status": 200,
+          "ttfbMs": 1230,
+          "totalMs": 1232,
+          "decodedBytes": 28940,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=1176.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=74",
+          "status": 200,
+          "ttfbMs": 3819,
+          "totalMs": 3820,
+          "decodedBytes": 50975,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=3562.0"
+        },
+        {
+          "path": "/api/store/products?per_page=100&category=73",
+          "status": 200,
+          "ttfbMs": 2469,
+          "totalMs": 2471,
+          "decodedBytes": 72389,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2413.0"
+        },
+        {
+          "path": "/api/store/cart",
+          "status": 200,
+          "ttfbMs": 2468,
+          "totalMs": 2468,
+          "decodedBytes": 1080,
+          "encoding": "br",
+          "cache": "no-store",
+          "serverTiming": "wc;dur=2391.0"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "index-CVqZWhzK.js",
+      "bytes": 330034
+    },
+    {
+      "file": "index-hc7Yhn9k.css",
+      "bytes": 49745
+    }
+  ],
+  "html": [
+    {
+      "path": "/",
+      "ttfbMs": 109,
+      "totalMs": 110
+    },
+    {
+      "path": "/produto/maquina-de-afiar-alicate-de-cuticula-completa",
+      "ttfbMs": 1357,
+      "totalMs": 1358
+    }
+  ]
+}

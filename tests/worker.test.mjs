@@ -1,10 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import ts from 'typescript';
 import {readFileSync} from 'node:fs';
-const source=readFileSync(new URL('../worker/index.ts',import.meta.url),'utf8');
-const compiled=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
-const {default:worker}=await import('data:text/javascript;base64,'+Buffer.from(compiled).toString('base64'));
+import {loadTs} from './helpers/load-ts.mjs';
+const {default:worker}=await loadTs(new URL('../worker/index.ts',import.meta.url));
 const env={PREVIEW:'true',PUBLIC_ORIGIN:'https://pratikaamollar.com.br',ASSETS:{fetch:async()=>new Response('asset')}};
 test('preview bloqueia indexação',async()=>{const r=await worker.fetch(new Request('https://preview.test/robots.txt'),env);assert.match(await r.text(),/Disallow: \//)});
 test('proxy recusa endpoint arbitrário',async()=>{const r=await worker.fetch(new Request('https://preview.test/api/store/orders'),env);assert.equal(r.status,404)});
@@ -23,4 +21,24 @@ test('handoff assina itens do servidor sem expor token',async()=>{
 });
 test('cupons não estão expostos no React nem no proxy', async()=>{
  const r=await worker.fetch(new Request('https://preview.test/api/store/cart/apply-coupon',{method:'POST',headers:{Origin:'https://preview.test'}}),env);assert.equal(r.status,404);
+});
+
+test('HTML condicional não vira resposta 200 vazia na recarga',async()=>{
+ const previous=globalThis.HTMLRewriter;
+ globalThis.HTMLRewriter=class {on(){return this}transform(response){return response}};
+ let received;
+ try{
+  const result=await worker.fetch(new Request('https://preview.test/',{headers:{'If-None-Match':'"old-shell"','If-Modified-Since':'Wed, 28 Oct 2026 00:00:00 GMT'}}),{...env,ASSETS:{fetch:async request=>{received=request;return new Response('<html><div id="root"></div></html>',{headers:{'Content-Type':'text/html','ETag':'"asset-shell"','Last-Modified':'yesterday'}})}}});
+  assert.equal(received.headers.get('If-None-Match'),null);assert.equal(received.headers.get('If-Modified-Since'),null);assert.equal(result.status,200);assert.ok((await result.text()).length>0);assert.equal(result.headers.get('ETag'),null);assert.equal(result.headers.get('Last-Modified'),null);
+ }finally{globalThis.HTMLRewriter=previous}
+});
+
+test('bootstrap público é JSON válido e protege fechamento de script',async()=>{
+ const oldFetch=globalThis.fetch,oldRewriter=globalThis.HTMLRewriter;let content='';
+ const raw=JSON.parse(readFileSync(new URL('../docs/performance/raw-products-before.json',import.meta.url),'utf8'));
+ raw[0]={...raw[0],slug:'script-test',name:'</script><script>untrusted</script>'};
+ globalThis.fetch=async url=>Response.json(String(url).includes('categories')?[]:raw,{headers:{'X-WP-TotalPages':'1'}});
+ globalThis.HTMLRewriter=class{handlers=new Map();on(selector,handler){this.handlers.set(selector,handler);return this}transform(response){this.handlers.get('#root').element({setInnerContent(value){content=value}});return response}};
+ try{const r=await worker.fetch(new Request('https://preview.test/produto/script-test'),{...env,ASSETS:{fetch:async()=>new Response('<html/>',{headers:{'Content-Type':'text/html'}})}});assert.equal(r.status,200);const script=content.match(/<script id="pa-catalog" type="application\/json">([\s\S]*?)<\/script>/);assert.ok(script);const data=JSON.parse(script[1]);assert.equal(data.products[0].name,raw[0].name);assert.ok(!script[1].includes('<'));assert.ok(script[1].includes('\\u003c'));}
+ finally{globalThis.fetch=oldFetch;globalThis.HTMLRewriter=oldRewriter}
 });

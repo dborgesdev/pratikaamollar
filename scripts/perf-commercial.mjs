@@ -1,0 +1,10 @@
+import {writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const base='http://127.0.0.1:4180';let cookie='';const actions=[];
+async function request(path,body){const start=performance.now();const r=await fetch(base+path,{method:body?'POST':'GET',headers:{Origin:base,'Content-Type':'application/json',...(cookie?{Cookie:cookie}:{})},body:body?JSON.stringify(body):undefined});const token=r.headers.get('set-cookie');if(token)cookie=token.split(';')[0];const data=await r.json();actions.push({path,status:r.status,totalMs:Math.round(performance.now()-start),items:data.items_count??null,cache:r.headers.get('cache-control'),serverTiming:r.headers.get('server-timing')});return{r,data}}
+const a=await fetch(base+'/',{headers:{'If-None-Match':'"previous-shell"','If-Modified-Since':'Wed, 28 Oct 2026 00:00:00 GMT'}});const html=await a.text();assert.equal(a.status,200);assert.ok(html.length>1000);assert.equal(a.headers.get('etag'),null);
+const initial=await request('/api/store/cart');assert.equal(initial.data.items_count,0);
+const unavailable=await request('/api/store/cart/add-item',{id:15954,quantity:1});assert.equal(unavailable.r.status,400);
+let item;
+try{const add=await request('/api/store/cart/add-item',{id:15945,quantity:1});item=add.data.items?.find(i=>i.id===15945);assert.ok(add.r.ok);assert.ok(item);const update=await request('/api/store/cart/update-item',{key:item.key,quantity:2});assert.equal(update.data.items_count,2);const checkout=await request('/api/handoff',{});assert.equal(checkout.r.status,503);assert.match(checkout.data.message,/ponte WordPress/)}finally{if(item){const remove=await request('/api/store/cart/remove-item',{key:item.key});assert.equal(remove.data.items_count,0)}}
+const output={date:new Date().toISOString(),conditionalHtml:{status:a.status,bytes:Buffer.byteLength(html),etag:a.headers.get('etag')},actions,note:'Real isolated Woo session; token intentionally omitted from report; cart cleared; no orders or payments.'};writeFileSync('docs/performance/commercial.json',JSON.stringify(output,null,2));console.log(JSON.stringify(output,null,2));
