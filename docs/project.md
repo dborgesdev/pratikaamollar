@@ -1,6 +1,6 @@
 # Pratika Amollar — Especificação de implementação V1
 
-Status: **direção inicial aprovada em conversa; V1 ainda não implementada/validada**. Criado em 28/10/2026.
+Status: **V1 implementada em branch e preview independente; validações e pendências em docs/validation.md, com handoff WordPress ainda bloqueante**. Criado em 28/10/2026.
 
 ## 1. Fatos confirmados
 - Marca: **Pratika Amollar**. Assinatura no logotipo: **Acessórios e ferramentas de afiação**.
@@ -82,3 +82,16 @@ Construir loja virtual visualmente sofisticada e funcional com **frontend React*
 3. Preview em Worker não produtivo; revisão visual e funcional.
 4. Ajustes na mesma branch; validação checkout sandbox, SEO e performance.
 5. Após aprovação, configurar DNS/Worker do domínio principal e tratar redirects, indexação e header/footer nativos.
+
+
+## 11. Revisão V2 solicitada pelo usuário
+
+V2 deve seguir de perto o mockup fornecido: hero integrado ao produto, categorias editoriais sem números decorativos, maior legibilidade e motion com reduced-motion. Carrinho com feedback otimista, consolidação de alterações e sincronização segura; **cupons exclusivamente no checkout nativo**, substituindo a orientação V1 de interface React para cupons. Contato ajustado pelo usuário para **nome e mensagem via WhatsApp**, sem exigir telefone/e-mail e sem serviço de envio de e-mail. Não publicar/deployar a V2 sem autorização. Medições, decisões e pendências: `docs/v2-validation.md`.
+
+## 12. Acabamento visual da V2
+
+Refinamento solicitado em 28/10/2026: preservar estrutura da V2; DM Serif Display nos títulos editoriais e Manrope nos textos funcionais, hospedadas localmente com OFL. Paleta de referência atualizada para #D99A2B, #F0B443, #0B0B0B e #FAF9F6; variantes de ouro escuro são utilizadas em texto pequeno sobre claro para contraste. Rebolos com fotografia original e iluminação/cenografia em CSS, sem inventar produto/rótulo. Registro de execução em `docs/visual-refinement.md`. Sem deploy autorizado.
+
+## 13. Publicação autorizada
+
+Em 28/10/2026 o usuário autorizou commit, push, PR, merge e deploy do estado refinado. O usuário alterou o nome do Worker para `pratikaamollar` e determinou preservar o wrangler.jsonc como está. O deploy deve usar um build novo gerado dessa configuração, mantendo PREVIEW=true e sem criar rotas/DNS do domínio principal. As pendências de instalação/validação da ponte WordPress continuam documentadas.

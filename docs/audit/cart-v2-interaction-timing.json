@@ -1,0 +1,54 @@
+{
+  "context": "V2 local Worker to live WooCommerce, anonymous cart, no checkout",
+  "interactions": [
+    {
+      "action": "3 rapid adds",
+      "feedbackMs": 0.8042000000004919,
+      "optimisticQuantity": 3
+    },
+    {
+      "action": "6 rapid quantity edits",
+      "feedbackMs": 0.4985999999998967,
+      "optimisticQuantity": 2
+    },
+    {
+      "action": "remove",
+      "feedbackMs": 0.10559999999895808,
+      "optimisticQuantity": 0
+    }
+  ],
+  "requests": [
+    {
+      "path": "products?include=16006",
+      "ms": 2918,
+      "upstream": "wc;dur=1808.0",
+      "status": 200
+    },
+    {
+      "path": "cart",
+      "ms": 2565,
+      "upstream": "wc;dur=2476.0",
+      "status": 200
+    },
+    {
+      "path": "cart/add-item",
+      "ms": 1576,
+      "upstream": "wc;dur=1445.0",
+      "status": 201
+    },
+    {
+      "path": "cart/update-item",
+      "ms": 1788,
+      "upstream": "wc;dur=1551.0",
+      "status": 200
+    },
+    {
+      "path": "cart/remove-item",
+      "ms": 1567,
+      "upstream": "wc;dur=1479.0",
+      "status": 200
+    }
+  ],
+  "finalCount": 0,
+  "postRequests": 3
+}

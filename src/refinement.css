@@ -1,0 +1,90 @@
+@font-face{font-family:'DM Serif Display';src:url('/fonts/dm-serif-display-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'DM Serif Display';src:url('/fonts/dm-serif-display-italic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
+@font-face{font-family:Manrope;src:url('/fonts/manrope-variable.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
+
+/* Refined material palette. Dark gold is reserved for small text on light surfaces. */
+:root{--gold:#D99A2B;--gold-light:#F0B443;--gold-text:#955A09;--ink:#0B0B0B;--paper:#FAF9F6;--muted:#57534B;--line:#E4DFD5;--font-display:'DM Serif Display',Georgia,serif;--font-functional:Manrope,Arial,sans-serif;font-family:var(--font-functional);color:#1D1B17;background:var(--paper);font-weight:450}
+h1,h2,.category-card h3{font-family:var(--font-display);font-weight:400;letter-spacing:-1px}
+h1,h2{line-height:1.08}h1 em,h2 em{font-style:normal;color:var(--gold-text)}
+button,input,select,textarea{font-family:var(--font-functional)}
+.product-info h1,.cart-item h2,.catalog aside h2{font-family:var(--font-functional);font-weight:800}
+.product-info h1{font-size:31px;line-height:1.25;letter-spacing:-.9px}
+.product-name{font-weight:750;line-height:1.5;letter-spacing:-.3px;font-size:16px}
+.nav{font-size:13px;letter-spacing:.4px;font-weight:750}
+.account,.cart-link{font-weight:600}.search input{font-size:14px}.search input::placeholder{color:#D1CDC5}
+.eyebrow{color:var(--gold-text);font-weight:800;letter-spacing:1.9px}
+.price,.detail-price{color:#B36A06;font-weight:800;font-family:var(--font-functional);letter-spacing:-.7px;font-variant-numeric:tabular-nums}
+.price{font-size:26px}.detail-price{font-size:35px}.product-content small{color:#77603B;font-weight:700}
+p,.rich-text{color:var(--muted)}.rich-text{font-weight:450}.breadcrumb{color:#6B6253}
+.button{background:linear-gradient(115deg,#EDAF3B 0%,#D99A2B 58%,#C68418 100%);border-color:#F0B443;border-radius:6px;color:#171107;font-family:var(--font-functional);font-weight:800;box-shadow:inset 0 1px 0 #FFE3A3B3,inset 0 -2px 0 #8D590933,0 4px 10px #713F071C}
+.button:hover{background:linear-gradient(115deg,#F5C15D,#E8A22D);box-shadow:inset 0 1px 0 #FFECB8,0 7px 19px #C3832033}
+.button:active{transform:translateY(0);box-shadow:inset 0 2px 4px #71440D40}
+.button.outline{color:var(--gold-text);border-color:#D99A2B;background:transparent;box-shadow:inset 0 1px 0 #FFF}
+.button.outline:hover{background:#FFF0D2;border-color:#AD741D}
+.add-button.in-cart{background:#E9EFDF;color:#365221;border-color:#B9CAA4;box-shadow:inset 0 1px 0 #FFF}
+:focus-visible{outline-color:#D99A2B}header,footer{background:var(--ink)}
+header{border-bottom-color:#D99A2B4D}.search input{background:#1D1D1B;border-color:#474033}.search button{background:linear-gradient(120deg,#F0B443,#D99A2B);box-shadow:inset 0 1px 0 #FFE2A0}
+.cart-link b{background:var(--gold-light);color:#211500;font-weight:800}.nav a.active,.nav a:hover{color:var(--gold-light);border-color:var(--gold)}
+.lucide{stroke-width:1.9}.hero-bottom .lucide{stroke-width:2.15}
+.hero-bottom svg{color:var(--gold-light);border-color:#E5A937;box-shadow:0 0 16px #D99A2B12,inset 0 0 8px #D99A2B0D}
+
+/* Preserve composition; expose the machine to a localized amber rim and bench light. */
+.hero{background:radial-gradient(ellipse at 83% 36%,#7E461B3D,transparent 55%),linear-gradient(90deg,#0B0B0BEF 4%,#0B0B0B92 58%,#170D06A3),url('/editorial/workshop-texture.jpg') center/cover}
+.hero::before{width:73%;height:93%;right:-7%;top:-3%;background:radial-gradient(ellipse at 63% 30%,#F0B44338,transparent 45%),radial-gradient(ellipse at 53% 70%,#E4A24530,transparent 62%);filter:none;transform:rotate(-15deg)}
+.hero::after{background:linear-gradient(165deg,#A77A343D,#140E07 47%,#070707 92%);border-top-color:#D99A2B66;box-shadow:0 -7px 40px #D99A2B0D}
+.hero-light{width:100px;right:7%;background:linear-gradient(90deg,transparent,#F0B44340,transparent);filter:blur(15px)}
+.hero h1{font-family:var(--font-display);font-size:clamp(54px,5.5vw,79px);font-weight:400;letter-spacing:-1.8px;line-height:1.02;text-shadow:0 3px 18px #0008}
+.hero h1 em{color:var(--gold);text-shadow:0 2px 18px #B375181F}.hero .eyebrow{color:var(--gold-light);font-weight:750}
+.hero-copy>p{color:#F2EEE4;font-size:17px;font-weight:500;line-height:1.75}
+.hero-product>img{filter:contrast(1.055) drop-shadow(0 27px 15px #000C) drop-shadow(9px -5px 17px #D99A2B1C)}
+.machine-shadow{background:#000C;filter:blur(13px);height:55px}.hero-caption{border-color:var(--gold)}.hero-caption span{color:var(--gold-light);font-weight:750}.hero-caption p{color:#E3DBCB}
+.hero-bottom{border-top-color:#E3AB413D}.hero-bottom>a{font-weight:750}.hero-bottom small{color:#D2C9B7;font-weight:450}
+
+.category-card{border:1px solid #50412B;box-shadow:0 8px 20px #37210A12}
+.category-card h3{font-family:var(--font-display);font-size:34px;line-height:1.04;text-shadow:0 2px 8px #000A}
+.category-card small{color:#F1DFBC;font-weight:650}.category-card div span{color:var(--gold-light);font-weight:750}
+.category-card:after{background:linear-gradient(0deg,#050505 2%,#080603B3 28%,transparent 78%)}
+.category-rebolos{background:radial-gradient(ellipse at 66% 13%,#BF8347,#422713 72%,#14100B)}
+.category-card:hover{border-color:#D99A2B99}.category-card .lucide{stroke-width:2.1}
+.product-card{border-color:#E2D9C8;box-shadow:0 3px 12px #38291208;background:#FFF}
+.product-card:hover{border-color:#D99A2B;box-shadow:0 14px 30px #5E3F1214,0 2px 4px #5E3F120C}
+.product-image>span{color:#5A4523;border-color:#DAC8A7;background:#FFFDF8;box-shadow:0 2px 6px #00000008}
+.product-image>img{filter:none}.product-content{border-top:1px solid #F8F4EC}
+.product-content>.button{font-size:13px;font-weight:800}.gallery-main{border-color:#DED5C5;box-shadow:0 7px 22px #3A290B08}
+
+/* Wheel still life: the original label and silhouette remain untouched. */
+.editorial{isolation:isolate;background:radial-gradient(ellipse at 87% 14%,#D57B242E,transparent 52%),linear-gradient(105deg,#0B0B0BF5 22%,#180E07B0 63%,#090807ED),url('/editorial/workshop-texture.jpg') center 65%/cover;border-top:1px solid #D99A2B55;border-bottom:1px solid #E5B45642}
+.editorial-grid{min-height:460px;grid-template-columns:1fr 1.12fr;position:relative}
+.editorial-grid>div:first-child{padding-block:57px;max-width:525px}.editorial h2{font-family:var(--font-display);font-size:clamp(42px,4.05vw,59px);line-height:1.06;letter-spacing:-1.2px;text-shadow:0 3px 15px #000B}
+.editorial h2 em{color:var(--gold-light)}.editorial .eyebrow{color:var(--gold-light)}.editorial p{color:#EBE2D2;font-weight:500;font-size:16px;line-height:1.8}
+.editorial::before{content:'';position:absolute;z-index:-1;inset:0 0 0 35%;background:linear-gradient(125deg,transparent 30%,#ECA13C0D 43%,#FFC97129 44%,transparent 45%),radial-gradient(ellipse at 75% 58%,#CF79273B,transparent 65%);pointer-events:none}
+.editorial::after{width:85%;height:170px;left:21%;bottom:-107px;transform:rotate(-10deg);background:linear-gradient(180deg,#CCA15326,#0A0805 65%);border-top:1px solid #F0B44373;box-shadow:0 -6px 35px #EE9D2B12;z-index:-1}
+.editorial-photo{position:relative;isolation:isolate;align-self:stretch;display:flex;align-items:center;justify-content:center;margin-right:-105px;margin-left:-35px;perspective:1100px}
+.editorial-photo::before{content:'';position:absolute;z-index:-1;inset:0 -4% -10% -9%;background:radial-gradient(ellipse at 63% 35%,#F0B44350 0%,#C6732124 33%,transparent 65%);transform:rotate(-17deg);filter:blur(16px)}
+.editorial-photo::after{content:'';position:absolute;z-index:-1;width:90%;height:65px;left:7%;bottom:30px;background:#000D;border-radius:50%;transform:rotate(-11deg);filter:blur(13px)}
+.editorial-photo>img{width:111%;max-width:111%;height:auto;max-height:none;transform:translate(8px,12px) rotate(-17deg) rotateY(-13deg) scale(1.25);transform-origin:57% 55%;filter:drop-shadow(21px 25px 8px #000B) drop-shadow(-7px -5px 15px #E6972D24);transition:transform .7s ease}
+.editorial-photo:hover>img{transform:translate(8px,5px) rotate(-16deg) rotateY(-10deg) scale(1.25)}
+.home-contact{background:#F2EEE5;border-color:#DFD2B9}.home-contact h2 em,.contact-intro h1 em,.cart-page h1 em{color:#95600E}.home-contact .eyebrow{color:var(--gold-text)}
+.contact-details>a>svg{color:#B5730D;stroke-width:2}.contact-form,.summary{background:#F3EFE6;border-color:#DDD1BA;box-shadow:0 5px 18px #5E411108}
+.contact-form label{font-weight:750}.contact-details h3{font-weight:750}.total strong{font-weight:800}.cart-item p{color:#A96406;font-weight:700}
+footer h3{color:var(--gold-light);font-weight:750}footer p{color:#D0C6B4}footer a:hover{color:var(--gold-light)}.footer-bottom{border-color:#57401E;color:#BFB49F}
+.page-banner{background:radial-gradient(at 85% 10%,#AF6E222F,transparent 55%),linear-gradient(90deg,#0B0B0BF5,#150D06B3),url('/editorial/workshop-texture.jpg') center/cover}.page-banner .eyebrow{color:var(--gold-light)}
+
+@media(max-width:1100px){.hero h1{font-size:61px}.product-name{font-size:17px}.category-card h3{font-size:31px}.product-content>.button{font-size:14px}.editorial-photo{margin-right:-65px}.editorial h2{font-size:49px}}
+@media(max-width:767px){
+ .hero h1{font-size:clamp(43px,8vw,59px);letter-spacing:-.8px;line-height:1.05}.hero-copy>p{font-size:16px}.hero .eyebrow{font-size:11px}.hero .text-link{font-weight:750}
+ .hero-product>img{filter:contrast(1.055) drop-shadow(0 18px 11px #000B) drop-shadow(5px -3px 10px #D99A2B1A)}
+ .section-heading h2{font-family:var(--font-display);font-size:34px;letter-spacing:-.65px}.category-card h3{font-size:34px}.category-card small{font-size:10px}
+ .hero-bottom>a{font-size:11px}.hero-bottom small{font-size:10px}.nav a{font-size:13px}.product-content>.button,.catalog-grid .product-content>.button{font-size:13px}.product-name,.catalog-grid .product-name{font-size:16px}
+ .editorial-grid{grid-template-columns:1fr;min-height:0}.editorial-grid>div:first-child{padding-block:43px 18px;max-width:none}.editorial h2{font-size:42px;max-width:360px}.editorial p{font-size:15px}.editorial-photo{height:300px;margin:-3px -55px 0 12%;perspective:800px;justify-content:flex-end}
+ .editorial-photo>img{width:116%;max-width:116%;max-height:350px;object-fit:contain;transform:translate(8px,12px) rotate(-19deg) rotateY(-12deg) scale(1.17)}
+ .editorial-photo:hover>img{transform:translate(8px,8px) rotate(-19deg) rotateY(-12deg) scale(1.17)}.editorial-photo:after{bottom:20px}.editorial::after{bottom:-100px}
+ .product-info h1{font-size:28px}.home-contact h2{font-size:37px}.contact-intro h1{font-size:41px}.contact-form h2,.summary h2{font-size:35px}.cart-page h1{font-size:41px}
+}
+@media(max-width:480px){.hero h1{font-size:44px}.hero .actions{gap:17px}.hero .button{font-size:13px;padding-inline:16px}.hero .text-link{font-size:12px}.product-name,.catalog-grid .product-name{font-size:17px}.product-content>.button,.catalog-grid .product-content>.button{font-size:14px}.price{font-size:27px}.featured .section-heading h2{font-size:33px}.editorial-photo{height:275px}}
+@media(max-width:374px){.hero h1{font-size:39px;letter-spacing:-.65px}.hero-copy>p{font-size:15px}.hero .button{font-size:12px}.hero .text-link{font-size:11px}.editorial h2{font-size:37px}.editorial-photo{height:245px;margin-left:5%}.section-heading h2{font-size:31px}.home-contact h2{font-size:33px}.contact-intro h1{font-size:36px}.cart-page h1{font-size:36px}}
+@media(prefers-reduced-motion:reduce){.editorial-photo>img{transition:none}.editorial-photo:hover>img{transform:translate(8px,12px) rotate(-17deg) rotateY(-13deg) scale(1.25)}}
+/* Keep the wheel dominant on narrow screens and freeze its pose for reduced motion. */
+.editorial-photo{--wheel-rest:translate(8px,12px) rotate(-17deg) rotateY(-13deg) scale(1.25)}
+@media(max-width:767px){.editorial-photo{--wheel-rest:translate(-6px,14px) rotate(-19deg) rotateY(-12deg) scale(1.43)}.editorial-photo>img{transform:var(--wheel-rest)}.editorial-photo:hover>img{transform:translate(-6px,8px) rotate(-18deg) rotateY(-12deg) scale(1.43)}}
+@media(prefers-reduced-motion:reduce){.editorial-photo>img,.editorial-photo:hover>img{transform:var(--wheel-rest);transition:none}.hero-product:hover>img{transform:rotate(-3deg)}.product-card:hover,.button:hover{transform:none}}
