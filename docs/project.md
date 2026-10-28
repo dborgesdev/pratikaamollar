@@ -95,3 +95,9 @@ Refinamento solicitado em 28/10/2026: preservar estrutura da V2; DM Serif Displa
 ## 13. Publicação autorizada
 
 Em 28/10/2026 o usuário autorizou commit, push, PR, merge e deploy do estado refinado. O usuário alterou o nome do Worker para `pratikaamollar` e determinou preservar o wrangler.jsonc como está. O deploy deve usar um build novo gerado dessa configuração, mantendo PREVIEW=true e sem criar rotas/DNS do domínio principal. As pendências de instalação/validação da ponte WordPress continuam documentadas.
+
+## 14. Diagnóstico e otimização sem cache
+
+Em 28/10/2026 o usuário suspendeu integralmente qualquer implementação de cache, inclusive preparação no WordPress, e manteve proibidos commit, push, PR, merge e deploy nesta tarefa. A branch de trabalho é `codex/catalog-performance-loading`; wrangler.jsonc e nome/endereço definidos pelo usuário permanecem intactos. Foram consolidadas as consultas públicas do catálogo em `/api/catalog`, eliminadas as consultas por categoria, reutilizado o estado já carregado durante a navegação e implementado loading premium com o logo original. Carrinho/sessão continuam dinâmicos. **Cache persistente do catálogo no WordPress: pendência deliberada, aguardando seleção e validação do plugin.** Resultados, limites e medições em `docs/performance/report.md`. A pendência anterior de instalação/validação da ponte de checkout continua existente.
+
+Em 28/10/2026, após a validação das otimizações, o usuário autorizou expressamente commit, push, merge e deploy desta branch. Publicação mantém PREVIEW=true, o wrangler.jsonc original e a decisão de não implementar cache.

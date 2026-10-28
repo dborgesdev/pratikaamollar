@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-28T21:00:51.215Z",
+  "context": "Local Cloudflare Worker preview -> real remote WooCommerce; NO cache; not edge-to-edge comparison with published baseline",
+  "runs": [
+    {
+      "run": 1,
+      "status": 200,
+      "ttfbMs": 3293,
+      "productsAvailableMs": 3296,
+      "decodedBytes": 52384,
+      "gzipBytes": 6443,
+      "processingMs": 0.1795999999999367,
+      "products": 11,
+      "categories": [
+        {
+          "id": 98,
+          "count": 2
+        },
+        {
+          "id": 74,
+          "count": 4
+        },
+        {
+          "id": 73,
+          "count": 5
+        }
+      ],
+      "upstreamRequests": 2,
+      "categoryFallbacks": 4,
+      "serverTiming": "wc-products;dur=2207.0, wc-categories;dur=3168.0, normalize;dur=1.00, wc-requests;desc=\"2\"",
+      "cache": "no-store"
+    },
+    {
+      "run": 2,
+      "status": 200,
+      "ttfbMs": 2831,
+      "productsAvailableMs": 2832,
+      "decodedBytes": 52384,
+      "gzipBytes": 6443,
+      "processingMs": 0.2363999999997759,
+      "products": 11,
+      "categories": [
+        {
+          "id": 98,
+          "count": 2
+        },
+        {
+          "id": 74,
+          "count": 4
+        },
+        {
+          "id": 73,
+          "count": 5
+        }
+      ],
+      "upstreamRequests": 2,
+      "categoryFallbacks": 4,
+      "serverTiming": "wc-products;dur=2765.0, wc-categories;dur=1303.0, normalize;dur=0.00, wc-requests;desc=\"2\"",
+      "cache": "no-store"
+    },
+    {
+      "run": 3,
+      "status": 200,
+      "ttfbMs": 2756,
+      "productsAvailableMs": 2757,
+      "decodedBytes": 52384,
+      "gzipBytes": 6443,
+      "processingMs": 0.18770000000040454,
+      "products": 11,
+      "categories": [
+        {
+          "id": 98,
+          "count": 2
+        },
+        {
+          "id": 74,
+          "count": 4
+        },
+        {
+          "id": 73,
+          "count": 5
+        }
+      ],
+      "upstreamRequests": 2,
+      "categoryFallbacks": 4,
+      "serverTiming": "wc-products;dur=2681.0, wc-categories;dur=1236.0, normalize;dur=1.00, wc-requests;desc=\"2\"",
+      "cache": "no-store"
+    }
+  ],
+  "html": [
+    {
+      "path": "/",
+      "status": 200,
+      "ttfbMs": 9,
+      "totalMs": 39,
+      "decodedBytes": 4421,
+      "bootstrapProducts": null,
+      "canonical": "https://pratikaamollar.com.br/",
+      "noindex": true,
+      "hasSchema": false
+    },
+    {
+      "path": "/produto/maquina-de-afiar-alicate-de-cuticula-completa",
+      "status": 200,
+      "ttfbMs": 2845,
+      "totalMs": 2890,
+      "decodedBytes": 64303,
+      "bootstrapProducts": 11,
+      "canonical": "https://pratikaamollar.com.br/produto/maquina-de-afiar-alicate-de-cuticula-completa",
+      "noindex": true,
+      "hasSchema": true
+    }
+  ],
+  "assets": [
+    {
+      "file": "Cart-DCh9pmg7.js",
+      "bytes": 4773,
+      "gzipBytes": 1872
+    },
+    {
+      "file": "Catalog-BTPrhHkS.js",
+      "bytes": 3814,
+      "gzipBytes": 1510
+    },
+    {
+      "file": "Contact-iFV1D_Rj.js",
+      "bytes": 4547,
+      "gzipBytes": 1909
+    },
+    {
+      "file": "index-BEZy8X_c.css",
+      "bytes": 51763,
+      "gzipBytes": 12396
+    },
+    {
+      "file": "index-BnENtLmx.js",
+      "bytes": 237705,
+      "gzipBytes": 73717
+    },
+    {
+      "file": "minus-Dt2jMGdw.js",
+      "bytes": 144,
+      "gzipBytes": 149
+    },
+    {
+      "file": "Product-B1Gm85ch.js",
+      "bytes": 33656,
+      "gzipBytes": 13075
+    },
+    {
+      "file": "Seo-DdDe_rRj.js",
+      "bytes": 52741,
+      "gzipBytes": 19048
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "path": "/products?per_page=100",
+    "ms": 3510,
+    "bytes": 152217,
+    "encoding": null,
+    "cache": [
+      "max-age=31536000"
+    ],
+    "total": [
+      "11"
+    ],
+    "totalPages": [
+      "1"
+    ]
+  },
+  {
+    "path": "/products/15675",
+    "ms": 2827,
+    "bytes": 22351,
+    "encoding": null,
+    "cache": [
+      "max-age=31536000"
+    ],
+    "total": null,
+    "totalPages": null
+  },
+  {
+    "path": "/products/categories?per_page=100",
+    "ms": 1499,
+    "bytes": 3847,
+    "encoding": null,
+    "cache": [
+      "max-age=31536000"
+    ],
+    "total": null,
+    "totalPages": null
+  }
+]

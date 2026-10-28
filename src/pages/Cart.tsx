@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Trash2, Minus, Plus, ShoppingBag, Check } from 'lucide-react';
-import { useStore } from '../lib/store';
+import { useCart } from '../lib/store';
 import { money, plain } from '../lib/api';
 import Seo from '../components/Seo';
 export default function Cart() {
-  const { cart, busy, failed, notice, setQuantity, beginCheckout, refreshCart } = useStore();
+  const { cart, busy, failed, notice, setQuantity, beginCheckout, refreshCart } = useCart();
   const [error, setError] = useState(''), [sending, setSending] = useState(false);
   async function checkout() {
     setSending(true); setError(''); let unlock: (() => void) | undefined;

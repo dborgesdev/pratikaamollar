@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-28T21:13:32.120Z",
+  "assets": [
+    {
+      "file": "Cart-Cb6NuTtK.js",
+      "bytes": 4773
+    },
+    {
+      "file": "Catalog-C4qsCB4o.js",
+      "bytes": 3809
+    },
+    {
+      "file": "Contact-Cph7p6F4.js",
+      "bytes": 4547
+    },
+    {
+      "file": "index-BEZy8X_c.css",
+      "bytes": 51763
+    },
+    {
+      "file": "index-DcJ18nQ2.js",
+      "bytes": 238026
+    },
+    {
+      "file": "minus-Dt2jMGdw.js",
+      "bytes": 144
+    },
+    {
+      "file": "Product-Dfp_DS-8.js",
+      "bytes": 33656
+    },
+    {
+      "file": "Seo-DdDe_rRj.js",
+      "bytes": 52741
+    }
+  ],
+  "wranglerSha256": "f18f18a30ec1b28cdf0f59a7717acbddbf11553dc4627650f9af36d84f4f6b92"
+}
