@@ -1,0 +1,15 @@
+{
+  "name": "pratikaamollar",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true,
+  },
+  "vars": {
+    "PUBLIC_ORIGIN": "https://pratikaamollar.com.br",
+    "PREVIEW": "true",
+  },
+}

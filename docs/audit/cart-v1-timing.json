@@ -1,0 +1,80 @@
+[
+  {
+    "operation": "cart",
+    "ms": 3125,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/add-item",
+    "ms": 74220,
+    "status": 201,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 4266,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 2512,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/remove-item",
+    "ms": 1443,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/add-item",
+    "ms": 1573,
+    "status": 201,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 2521,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 3186,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/remove-item",
+    "ms": 1864,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/add-item",
+    "ms": 1335,
+    "status": 201,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1337,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1351,
+    "status": 200,
+    "serverTiming": null
+  },
+  {
+    "operation": "cart/remove-item",
+    "ms": 1272,
+    "status": 200,
+    "serverTiming": null
+  }
+]

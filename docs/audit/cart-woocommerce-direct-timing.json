@@ -1,0 +1,42 @@
+[
+  {
+    "operation": "cart/add-item",
+    "ms": 2886,
+    "status": 201
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1636,
+    "status": 200
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1763,
+    "status": 200
+  },
+  {
+    "operation": "cart/remove-item",
+    "ms": 1571,
+    "status": 200
+  },
+  {
+    "operation": "cart/add-item",
+    "ms": 1513,
+    "status": 201
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1362,
+    "status": 200
+  },
+  {
+    "operation": "cart/update-item",
+    "ms": 1444,
+    "status": 200
+  },
+  {
+    "operation": "cart/remove-item",
+    "ms": 4394,
+    "status": 200
+  }
+]
