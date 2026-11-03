@@ -8,6 +8,7 @@ import LoadingOverlay from './components/LoadingOverlay';
 import './styles.css';
 import './refinement.css';
 import './loading.css';
+import './shopping.css';
 const Catalog = lazy(() => import('./pages/Catalog'));
 const Product = lazy(() => import('./pages/Product'));
 const Cart = lazy(() => import('./pages/Cart'));
