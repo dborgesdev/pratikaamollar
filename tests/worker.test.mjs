@@ -12,11 +12,11 @@ test('proxy não aceita escrita em produtos',async()=>{const r=await worker.fetc
 
 test('handoff assina itens do servidor sem expor token',async()=>{
  const previous=globalThis.fetch;
- globalThis.fetch=async()=>Response.json({items:[{id:16006,quantity:2,variation:[]}],coupons:[]});
+ globalThis.fetch=async()=>Response.json({items:[{key:'item-key',id:16006,quantity:2,variation:[]}],coupons:[]});
  try{
- const r=await worker.fetch(new Request('https://preview.test/api/handoff',{method:'POST',headers:{Origin:'https://preview.test',Cookie:'pa_cart=private-token'}}),{...env,HANDOFF_SECRET:'a-test-secret-with-at-least-32-bytes'});
+ const r=await worker.fetch(new Request('https://preview.test/api/handoff',{method:'POST',headers:{Origin:'https://preview.test',Cookie:'pa_cart=private-token'},body:JSON.stringify({items:[{key:'item-key',id:16006,quantity:2}]})}),{...env,HANDOFF_SECRET:'a-test-secret-with-at-least-32-bytes'});
  assert.equal(r.status,200);const body=await r.json();assert.equal(body.action,'https://loja.pratikaamollar.com.br/wp-admin/admin-post.php');assert.equal(body.fields.action,'pa_handoff');
- const payload=JSON.parse(Buffer.from(body.fields.payload,'base64url'));assert.deepEqual(payload.items,[{id:16006,quantity:2,variation:[]}]);assert.ok(payload.exp>Date.now()/1000);assert.ok(payload.exp<Date.now()/1000+100);assert.ok(body.fields.signature);assert.ok(!JSON.stringify(body).includes('private-token'));
+ const payload=JSON.parse(Buffer.from(body.fields.payload,'base64url'));assert.deepEqual(payload.items,[{key:'item-key',id:16006,quantity:2,variation:[]}]);assert.ok(payload.exp>Date.now()/1000);assert.ok(payload.exp<Date.now()/1000+100);assert.ok(body.fields.signature);assert.ok(!JSON.stringify(body).includes('private-token'));
  }finally{globalThis.fetch=previous}
 });
 test('cupons não estão expostos no React nem no proxy', async()=>{

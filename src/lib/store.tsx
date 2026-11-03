@@ -10,7 +10,7 @@ interface CartState extends ReturnType<CartSync['getSnapshot']> {
   addToCart: (product: Product, quantity: number) => Promise<void>;
   cartLoading: boolean; cartError: string; loadCart: () => Promise<void>;
   setQuantity: (id: number, quantity: number) => void; flushCart: () => Promise<void>;
-  beginCheckout: () => Promise<() => void>; refreshCart: () => Promise<void>;
+  beginCheckout: () => Promise<{ unlock: () => void; cart: Cart }>; refreshCart: () => Promise<void>;
 }
 const CatalogContext = createContext<CatalogState>(null!);
 const CartContext = createContext<CartState>(null!);
@@ -40,7 +40,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     // Session reads do not compete with essential catalogue requests or hold the home loader.
     if (pathname === '/carrinho' || catalog.status === 'ready') void loadCart().catch(() => {});
   }, [pathname, catalog.status]);
-  const cartState: CartState = { ...cart, addToCart: async (product, quantity) => { await loadCart(); await sync.addConfirmed(product, quantity); }, cartLoading, cartError, loadCart, setQuantity: (id, quantity) => sync.setQuantity(id, quantity), flushCart: () => sync.flush(), beginCheckout: () => sync.lockForCheckout(), refreshCart: () => sync.refresh() };
+  const cartState: CartState = { ...cart, addToCart: async (product, quantity) => { await loadCart(); await sync.addConfirmed(product, quantity); }, cartLoading, cartError, loadCart, setQuantity: (id, quantity) => sync.setQuantity(id, quantity), flushCart: () => sync.flush(), beginCheckout: async () => { const unlock = await sync.lockForCheckout(); return { unlock, cart: sync.getSnapshot().cart! }; }, refreshCart: () => sync.refresh() };
   return <CatalogContext.Provider value={catalogState}><CartContext.Provider value={cartState}>{children}</CartContext.Provider></CatalogContext.Provider>;
 }
 export const useCatalog = () => useContext(CatalogContext);
