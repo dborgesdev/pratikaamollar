@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-29T12:45:40.743Z",
+  "currentPublishedPluginVersion": "2026.4.1",
+  "inspectedPluginVersion": "2026.4.1",
+  "downloadUrl": "https://downloads.wordpress.org/plugin/wp-rest-cache.2026.4.1.zip",
+  "sources": [
+    {
+      "path": "wp-rest-cache.php",
+      "sha256": "0c28b48a2051b86373ba196d0f3178be6c970a5b14e6f54e168f1a76d1b096f2"
+    },
+    {
+      "path": "sources/wp-rest-cache.php",
+      "sha256": "25f8dc2b3fc44235826829bc44623dc9a72d1e7820cd7b82995a1babf2ac191b"
+    },
+    {
+      "path": "includes/api/class-endpoint-api.php",
+      "sha256": "bdad04f5cb80027969845f31692438f25b5fe4379cfdd79805facb8eaa0d4792"
+    },
+    {
+      "path": "includes/caching/class-caching.php",
+      "sha256": "6bcdb77dd72a9f94f526d4129f3902af31c767564e27b8d6a7b492815fea09f0"
+    },
+    {
+      "path": "includes/class-plugin.php",
+      "sha256": "94f6e0367f8e7c7d795c65d87eb012d0f2b4b8760d37ec604fbceff15538f8c7"
+    }
+  ],
+  "publicReads": [
+    {
+      "endpoint": "products?per_page=1",
+      "attempt": 1,
+      "status": 200,
+      "ms": 4069,
+      "items": 1,
+      "cacheHitHeader": null,
+      "cacheControl": null,
+      "total": "11"
+    },
+    {
+      "endpoint": "products?per_page=1",
+      "attempt": 2,
+      "status": 200,
+      "ms": 3360,
+      "items": 1,
+      "cacheHitHeader": null,
+      "cacheControl": null,
+      "total": "11"
+    },
+    {
+      "endpoint": "products/categories?per_page=100",
+      "attempt": 1,
+      "status": 200,
+      "ms": 1798,
+      "items": 3,
+      "cacheHitHeader": null,
+      "cacheControl": null,
+      "total": null
+    },
+    {
+      "endpoint": "products/categories?per_page=100",
+      "attempt": 2,
+      "status": 200,
+      "ms": 1655,
+      "items": 3,
+      "cacheHitHeader": null,
+      "cacheControl": null,
+      "total": null
+    }
+  ],
+  "note": "Read-only public HTTP inspection. No remote installation or invalidation performed. Absence of HIT header is not proof the plugin is absent.",
+  "previousInspectedPluginVersion": "2026.4.0",
+  "pluginZipSha256": "7951467b3a937be4de570dcf46022b31dd0317e865d67d85cd164ca185fcfb27",
+  "versionDifference": "2026.4.1 changes cleanup_deleted_caches to include deleted=1 even when cleaned=1. Public endpoint interception and deletion API signatures unchanged.",
+  "integrationSha256": "7e11174567936e25ee42f70dd2a59619bdd598798c99090d5f8fcbdbaf0dbb07",
+  "testedRuntime": {
+    "php": "8.5.12",
+    "wordpress": "7.1.4",
+    "woocommerce": "11.2.1",
+    "wpRestCache": "2026.4.1",
+    "sqliteIntegration": "3.1.2"
+  }
+}

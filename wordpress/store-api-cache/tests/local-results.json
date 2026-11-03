@@ -1,0 +1,2163 @@
+{
+  "date": "2026-10-29T12:49:24.293Z",
+  "environment": "http://127.0.0.1:4191",
+  "stack": {
+    "wordpress": "7.1.4",
+    "woocommerce": "11.2.1",
+    "allowed": {
+      "wc/store/v1": [
+        "products",
+        "products/categories"
+      ]
+    },
+    "regenerate": false,
+    "cleanup_scheduled": false,
+    "regenerate_scheduled": false
+  },
+  "cases": [
+    {
+      "name": "First request MISS and repeated HIT, all query/order/page variants",
+      "passed": true
+    },
+    {
+      "name": "Persistent records use unlimited expiry, no regeneration enabled",
+      "passed": true
+    },
+    {
+      "name": "100 duplicate notifications produce four endpoint updates, then no repeated deletion",
+      "passed": true
+    },
+    {
+      "name": "Price edit invalidates every variant and returns new price",
+      "passed": true
+    },
+    {
+      "name": "Stock write invalidates every variant and exposes sold-out state",
+      "passed": true
+    },
+    {
+      "name": "Order stock reduction uses Woo stock lifecycle, no payment",
+      "passed": true
+    },
+    {
+      "name": "Draft creation and subsequent publication both invalidate",
+      "passed": true
+    },
+    {
+      "name": "Product deletion invalidates, removed product is absent",
+      "passed": true
+    },
+    {
+      "name": "Category reassignment invalidates products and category counts",
+      "passed": true
+    },
+    {
+      "name": "Category name edit and deletion invalidate both endpoints",
+      "passed": true
+    },
+    {
+      "name": "Variation price/attribute edit invalidates and updates parent",
+      "passed": true
+    },
+    {
+      "name": "Warm public cache is bypassed with cookies, auth and session/nonce headers",
+      "passed": true
+    },
+    {
+      "name": "A genuinely authenticated customer bypasses a warm shared cache",
+      "passed": true
+    },
+    {
+      "name": "Other Store API routes, product details, cart and plain rest_route are not cached",
+      "passed": true
+    },
+    {
+      "name": "Credential query parameters and non-GET requests bypass public cache",
+      "passed": true
+    },
+    {
+      "name": "Geolocation mode disables shared cache",
+      "passed": true
+    },
+    {
+      "name": "Reordered query keys reuse the same plugin cache key",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 728,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 161,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 321,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 330,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 136,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 334,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 326,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 197,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 424,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 153,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 312,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 289,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 290,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 467,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 153,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 333,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 157,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 354,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 131,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 312,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 312,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 456,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 267,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 323,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 132,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 466,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 202,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 310,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 334,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 312,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 156,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 409,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 158,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 382,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 277,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 429,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 341,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 272,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 438,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products?include=23",
+      "status": 200,
+      "hit": false,
+      "ms": 423,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 564,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 204,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 388,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 193,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 434,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 205,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 379,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 188,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 382,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 250,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 428,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 227,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 345,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 279,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 404,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 584,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 248,
+      "headers": []
+    },
+    {
+      "path": "products?include=23",
+      "status": 200,
+      "hit": false,
+      "ms": 1034,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 478,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 170,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 378,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 198,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 362,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 181,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 375,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 170,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 550,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 160,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 389,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 401,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 156,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 323,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 182,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 329,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 612,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 389,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 178,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 423,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 153,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 392,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 153,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 379,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 591,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 176,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 490,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 432,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 323,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 752,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 138,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 377,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 345,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 360,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 206,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 446,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 333,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 345,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 154,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 301,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 446,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 142,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 301,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 335,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 322,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 322,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 279,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 198,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 390,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 334,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 491,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 132,
+      "headers": []
+    },
+    {
+      "path": "products?include=27",
+      "status": 200,
+      "hit": false,
+      "ms": 277,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 445,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 145,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 310,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 142,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 324,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 325,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 153,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 314,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 152,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 456,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 157,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 277,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 132,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 279,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?include=27",
+      "status": 200,
+      "hit": false,
+      "ms": 278,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 462,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 132,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 289,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 132,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 312,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 145,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 299,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 300,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 145,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 488,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 370,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 152,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 267,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 300,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?category=22",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 446,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 379,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 321,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 145,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 333,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 368,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 322,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 435,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 165,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 323,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products/categories?include=22",
+      "status": 200,
+      "hit": false,
+      "ms": 279,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 575,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 183,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 370,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 189,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 441,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 201,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 365,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 456,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 390,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 848,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 285,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 459,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 295,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 434,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 216,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 589,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 261,
+      "headers": []
+    },
+    {
+      "path": "products/categories?include=22",
+      "status": 200,
+      "hit": false,
+      "ms": 355,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 596,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 282,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 404,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 172,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 344,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 155,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 323,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 200,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 389,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 144,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 334,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 310,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 133,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 290,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 171,
+      "headers": []
+    },
+    {
+      "path": "products?include=24",
+      "status": 200,
+      "hit": false,
+      "ms": 430,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 246,
+      "headers": [
+        "Cookie"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 609,
+      "headers": [
+        "Cookie"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 592,
+      "headers": [
+        "Cookie"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 286,
+      "headers": [
+        "Authorization"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 382,
+      "headers": [
+        "Cart-Token"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 261,
+      "headers": [
+        "Nonce"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 404,
+      "hit": false,
+      "ms": 259,
+      "headers": [
+        "X-HTTP-Method-Override"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 517,
+      "headers": [
+        "X-WP-Nonce"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 331,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 201,
+      "headers": [
+        "Cookie",
+        "X-WP-Nonce"
+      ]
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 173,
+      "headers": [
+        "Cookie",
+        "X-WP-Nonce"
+      ]
+    },
+    {
+      "path": "cart",
+      "status": 200,
+      "hit": false,
+      "ms": 682,
+      "headers": []
+    },
+    {
+      "path": "cart",
+      "status": 200,
+      "hit": false,
+      "ms": 140,
+      "headers": []
+    },
+    {
+      "path": "products/23",
+      "status": 200,
+      "hit": false,
+      "ms": 143,
+      "headers": []
+    },
+    {
+      "path": "products/23",
+      "status": 200,
+      "hit": false,
+      "ms": 146,
+      "headers": []
+    },
+    {
+      "path": "products/collection-data",
+      "status": 200,
+      "hit": false,
+      "ms": 179,
+      "headers": []
+    },
+    {
+      "path": "products/collection-data",
+      "status": 200,
+      "hit": false,
+      "ms": 145,
+      "headers": []
+    },
+    {
+      "path": "products/categories/21",
+      "status": 200,
+      "hit": false,
+      "ms": 163,
+      "headers": []
+    },
+    {
+      "path": "products/categories/21",
+      "status": 200,
+      "hit": false,
+      "ms": 140,
+      "headers": []
+    },
+    {
+      "path": "products?consumer_key=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 375,
+      "headers": []
+    },
+    {
+      "path": "products?consumer_key=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 208,
+      "headers": []
+    },
+    {
+      "path": "products?access_token=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 195,
+      "headers": []
+    },
+    {
+      "path": "products?access_token=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 313,
+      "headers": []
+    },
+    {
+      "path": "products?token=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 224,
+      "headers": []
+    },
+    {
+      "path": "products?token=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 227,
+      "headers": []
+    },
+    {
+      "path": "products?context=edit",
+      "status": 200,
+      "hit": false,
+      "ms": 207,
+      "headers": []
+    },
+    {
+      "path": "products?context=edit",
+      "status": 200,
+      "hit": false,
+      "ms": 175,
+      "headers": []
+    },
+    {
+      "path": "products?_wpnonce=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 180,
+      "headers": []
+    },
+    {
+      "path": "products?_wpnonce=invalid",
+      "status": 200,
+      "hit": false,
+      "ms": 164,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 197,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 243,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": false,
+      "ms": 717,
+      "headers": []
+    },
+    {
+      "path": "products",
+      "status": 200,
+      "hit": true,
+      "ms": 256,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 393,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 239,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": false,
+      "ms": 366,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=1&page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 224,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": false,
+      "ms": 571,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=asc",
+      "status": 200,
+      "hit": true,
+      "ms": 196,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": false,
+      "ms": 871,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=100&orderby=price&order=desc",
+      "status": 200,
+      "hit": true,
+      "ms": 210,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": false,
+      "ms": 356,
+      "headers": []
+    },
+    {
+      "path": "products?category=21",
+      "status": 200,
+      "hit": true,
+      "ms": 166,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": false,
+      "ms": 390,
+      "headers": []
+    },
+    {
+      "path": "products?search=PA%20Test",
+      "status": 200,
+      "hit": true,
+      "ms": 239,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": false,
+      "ms": 444,
+      "headers": []
+    },
+    {
+      "path": "products/categories",
+      "status": 200,
+      "hit": true,
+      "ms": 215,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": false,
+      "ms": 463,
+      "headers": []
+    },
+    {
+      "path": "products/categories?per_page=1&page=1",
+      "status": 200,
+      "hit": true,
+      "ms": 225,
+      "headers": []
+    },
+    {
+      "path": "products?per_page=2&order=asc&orderby=price",
+      "status": 200,
+      "hit": false,
+      "ms": 511,
+      "headers": []
+    },
+    {
+      "path": "products?orderby=price&order=asc&per_page=2",
+      "status": 200,
+      "hit": true,
+      "ms": 208,
+      "headers": []
+    }
+  ],
+  "cleanup": true
+}
