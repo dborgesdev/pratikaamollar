@@ -7,8 +7,8 @@ import { catalogResource } from './catalog-session';
 import type { Category, Product } from './types';
 interface CatalogState { products: Product[]; categories: Category[]; loading: boolean; error: string; reload: () => void }
 interface CartState extends ReturnType<CartSync['getSnapshot']> {
+  addToCart: (product: Product, quantity: number) => Promise<void>;
   cartLoading: boolean; cartError: string; loadCart: () => Promise<void>;
-  mutate: (path: string, body: Record<string, unknown>) => Promise<void>;
   setQuantity: (id: number, quantity: number) => void; flushCart: () => Promise<void>;
   beginCheckout: () => Promise<() => void>; refreshCart: () => Promise<void>;
 }
@@ -33,17 +33,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setCartLoading(true); setCartError('');
     try { sync.hydrate(await initialSession()); } catch (error) { setCartError((error as Error).message); throw error; } finally { setCartLoading(false); }
   }
-  useEffect(() => { if (needsCatalog(pathname)) void catalogResource.load().catch(() => {}); }, [pathname]);
+  const sessionReady = !!cart.cart;
+  // Fill category navigation on direct contact/cart entry without blocking those pages.
+  useEffect(() => { if (needsCatalog(pathname) || pathname === '/contato' || (pathname === '/carrinho' && (sessionReady || cartError))) void catalogResource.load().catch(() => {}); }, [pathname, sessionReady, cartError]);
   useEffect(() => {
     // Session reads do not compete with essential catalogue requests or hold the home loader.
     if (pathname === '/carrinho' || catalog.status === 'ready') void loadCart().catch(() => {});
   }, [pathname, catalog.status]);
-  async function mutate(path: string, body: Record<string, unknown>) {
-    await loadCart();
-    if (path === 'cart/add-item') { const product = catalog.data?.products.find(item => item.id === Number(body.id)); if (product) sync.add(product, Number(body.quantity)); }
-    else { const item = sync.getSnapshot().cart?.items.find(item => item.key === body.key); if (item) sync.setQuantity(item.id, path === 'cart/remove-item' ? 0 : Number(body.quantity)); }
-  }
-  const cartState: CartState = { ...cart, cartLoading, cartError, loadCart, mutate, setQuantity: (id, quantity) => sync.setQuantity(id, quantity), flushCart: () => sync.flush(), beginCheckout: () => sync.lockForCheckout(), refreshCart: () => sync.refresh() };
+  const cartState: CartState = { ...cart, addToCart: async (product, quantity) => { await loadCart(); await sync.addConfirmed(product, quantity); }, cartLoading, cartError, loadCart, setQuantity: (id, quantity) => sync.setQuantity(id, quantity), flushCart: () => sync.flush(), beginCheckout: () => sync.lockForCheckout(), refreshCart: () => sync.refresh() };
   return <CatalogContext.Provider value={catalogState}><CartContext.Provider value={cartState}>{children}</CartContext.Provider></CatalogContext.Provider>;
 }
 export const useCatalog = () => useContext(CatalogContext);
