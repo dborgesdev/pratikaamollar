@@ -1,5 +1,5 @@
 import Seo from '../components/Seo';
-import HomeHero from '../components/HomeHero';
+import HomeHero from '../components/HomeHeroCarousel';
 import HomeCategories from '../components/HomeCategories';
 import HomeFeatured from '../components/HomeFeatured';
 import HomeEditorial from '../components/HomeEditorial';

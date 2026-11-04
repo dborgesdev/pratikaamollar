@@ -7,6 +7,17 @@ const { checkoutTransfer } = await loadTs(new URL('../src/lib/checkout.ts', impo
 const secret = 'disposable-local-test-secret-at-least-32-bytes';
 const items = [{ key:'first', id:1, quantity:3, variation:[] }, { key:'second', id:2, quantity:2, variation:[{attribute:'Acabamento',value:'Dourado'}] }];
 const request = (rows=items, cookie='pa_cart=private-token') => new Request('https://frontend.test/api/handoff', { method:'POST', headers:{Origin:'https://frontend.test',Cookie:cookie},body:JSON.stringify({items:rows}) });
+test('domínio definitivo: cliente prepara transferência assinada sem alterar origem; origens externas são recusadas', async()=>{
+ const origin='https://pratikaamollar.com.br';
+ const transfer=await checkoutTransfer({items},async(path,options)=>prepareHandoff(new Request(origin+path,{...options,headers:{...options.headers,Origin:origin,Cookie:'pa_cart=local-test-token'}}),secret,async()=>Response.json({items,errors:[]})));
+ const payload=JSON.parse(Buffer.from(transfer.fields.payload,'base64url'));
+ assert.equal(payload.origin,origin);assert.deepEqual(payload.items,items);
+ assert.equal(transfer.fields.signature,createHmac('sha256',secret).update(transfer.fields.payload).digest('base64url'));
+ for(const bad of ['https://evil.test','https://pratikaamollar.com.br.evil.test','null']){
+  const response=await prepareHandoff(new Request(origin+'/api/handoff',{method:'POST',headers:{Origin:bad}}),secret,async()=>{throw Error('Unauthorized request reached cart')});
+  assert.equal(response.status,403);
+ }
+});
 test('handoff assina snapshot real, atributos e prazo, sem preço/token', async()=>{
  const r=await prepareHandoff(request(),secret,async()=>Response.json({items,errors:[]})); assert.equal(r.status,200);assert.equal(r.headers.get('cache-control'),'no-store');
  const body=await r.json();const p=JSON.parse(Buffer.from(body.fields.payload,'base64url'));assert.equal(p.v,2);assert.equal(p.exp-p.iat,90);assert.equal(p.origin,'https://frontend.test');assert.deepEqual(p.items,items);assert.equal(body.fields.signature,createHmac('sha256',secret).update(body.fields.payload).digest('base64url'));assert.ok(!JSON.stringify(body).includes('private-token'));

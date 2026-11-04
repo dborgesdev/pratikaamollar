@@ -1,0 +1,33 @@
+{
+  "source": "/www/loja/wp-content/themes/woodmart",
+  "method": "FileZilla authorized download, read-only",
+  "date": "2026-11-04",
+  "version": "8.1.1",
+  "hashFormat": "sha256-utf8-lf",
+  "files": {
+    "style.css": "cb7bb3767607653963595577b099cb05a26759c8902e246dd10c7dd9f6589a6c",
+    "header.php": "1688695c0694a874adc130865f60e8786883f350fbe571e326581ed8629f9522",
+    "footer.php": "7e326b096980abde9b5b6bee4fbdb66844a6d32ddf5080e8827f042494b5ece3",
+    "functions.php": "e4d7925257793494808de2935887e774991bdf6640d711aee87237015f0e6fbb",
+    "page.php": "9c848e47227417be60a25dd4c8cb30ea93aec20e916c82bb5b9b5621d2454a0e",
+    "inc/functions.php": "42253960b56e8d387b82be72045193f63426c93db540a553e4ee3e35682aa4c3",
+    "inc/helpers.php": "3b4850ce97a5e6e2e0c2f4014d0214991d3b2c5b775e09b68852cc452fa39e36",
+    "inc/actions.php": "d3f28cf06eaf48bee5159d16bbbbf4099dae8e9319c9d33b9fc1fac095b2eb37",
+    "inc/enqueue.php": "4797a1ccfbeda2d7112b4878c6ae37c0791602360060f31c32d288e8a03f5871",
+    "inc/template-tags/template-tags.php": "f237e565840c9ccab04ab243b351aede46897fb51cbc67b64bd4231bef9678ba",
+    "inc/integrations/woocommerce/helpers.php": "f44d4ed72ce82c14095de3c952baace2f38498817816d136d296bb156c8d3574",
+    "inc/integrations/woocommerce/template-tags.php": "35efab3af4513b575c0bf7270624278bd764c6fa56b4a1cfda6c9916acbeeb1b",
+    "inc/modules/search.php": "3a5cc4582344506638f3a0f6bfabddb8d300c35ab0c20872619460877cbbea8b",
+    "inc/modules/sticky-toolbar.php": "133def11826a3cb9c3088bc05d79491128ab9a99b01e466367faa4be479a1a2b"
+  },
+  "existingChild": {
+    "files": [
+      "functions.php",
+      "screenshot.png",
+      "style.css",
+      "woodmart.pot"
+    ],
+    "functionsHash": "d7f059e5749b03fe667fe71bf048a6af1b5fe8db8757a9e38d6ca3aa48c967c7",
+    "notes": "Only standard child-style enqueue; no header/footer overrides."
+  }
+}

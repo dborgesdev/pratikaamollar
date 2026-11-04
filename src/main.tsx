@@ -9,10 +9,15 @@ import './styles.css';
 import './refinement.css';
 import './loading.css';
 import './shopping.css';
+import './legal.css';
 const Catalog = lazy(() => import('./pages/Catalog'));
 const Product = lazy(() => import('./pages/Product'));
 const Cart = lazy(() => import('./pages/Cart'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const PurchaseTerms = lazy(() => import('./pages/PurchaseTerms'));
+const Returns = lazy(() => import('./pages/Returns'));
+const Shipping = lazy(() => import('./pages/Shipping'));
 class PageBoundary extends React.Component<{children: React.ReactNode; onFailure: () => void}, {failed: boolean}> {
   state = { failed: false };
   componentDidCatch() { this.props.onFailure(); }
@@ -30,6 +35,6 @@ function Application() {
   const initialCatalog = needsCatalog(initialPath);
   const error = initialCatalog ? catalog.error : initialPath === '/carrinho' ? cart.cartError : '';
   const pending = initialCatalog ? catalog.loading : initialPath === '/carrinho' ? !cart.cart && !cart.cartError : false;
-  return <><LoadingOverlay pending={pending || !pageReady} error={error} retry={() => { if(initialCatalog) catalog.reload(); else void cart.loadCart().catch(() => {}); }}/><div id="application-shell">{catalog.error && <div className="session-alert" role="alert">{catalog.error}<button onClick={catalog.reload}>Tentar novamente</button></div>}{cart.cartError && pathname !== '/carrinho' && <div className="session-alert" role="status">Não foi possível conectar seu carrinho.<button onClick={() => { void cart.loadCart().catch(() => {}); }}>Reconectar</button></div>}<PageBoundary onFailure={markReady}><Suspense fallback={<div className="route-loading" role="status">Abrindo página…</div>}><ReadyPage ready={markReady}><Routes><Route element={<Layout/>}><Route index element={<Home/>}/><Route path="produtos" element={<Catalog key={pathname}/>}/><Route path="categoria/:slug" element={<Catalog key={pathname}/>}/><Route path="produto/:slug" element={<Product key={pathname}/>}/><Route path="carrinho" element={<Cart/>}/><Route path="contato" element={<Contact/>}/><Route path="*" element={<div className="wrap section empty"><h1>Página não encontrada</h1><Link to="/">Voltar ao início</Link></div>}/></Route></Routes></ReadyPage></Suspense></PageBoundary></div></>;
+  return <><LoadingOverlay pending={pending || !pageReady} error={error} retry={() => { if(initialCatalog) catalog.reload(); else void cart.loadCart().catch(() => {}); }}/><div id="application-shell">{catalog.error && <div className="session-alert" role="alert">{catalog.error}<button onClick={catalog.reload}>Tentar novamente</button></div>}{cart.cartError && pathname !== '/carrinho' && <div className="session-alert" role="status">Não foi possível conectar seu carrinho.<button onClick={() => { void cart.loadCart().catch(() => {}); }}>Reconectar</button></div>}<PageBoundary onFailure={markReady}><Suspense fallback={<div className="route-loading" role="status">Abrindo página…</div>}><ReadyPage ready={markReady}><Routes><Route element={<Layout/>}><Route index element={<Home/>}/><Route path="produtos" element={<Catalog key={pathname}/>}/><Route path="categoria/:slug" element={<Catalog key={pathname}/>}/><Route path="produto/:slug" element={<Product key={pathname}/>}/><Route path="carrinho" element={<Cart/>}/><Route path="contato" element={<Contact/>}/><Route path="politica-de-privacidade" element={<Privacy/>}/><Route path="termos-e-condicoes-de-compra" element={<PurchaseTerms/>}/><Route path="trocas-devolucoes-e-reembolsos" element={<Returns/>}/><Route path="entrega-e-frete" element={<Shipping/>}/><Route path="*" element={<div className="wrap section empty"><h1>Página não encontrada</h1><Link to="/">Voltar ao início</Link></div>}/></Route></Routes></ReadyPage></Suspense></PageBoundary></div></>;
 }
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><StoreProvider><Application/></StoreProvider></BrowserRouter></React.StrictMode>);
