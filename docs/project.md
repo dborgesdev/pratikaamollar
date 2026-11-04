@@ -123,3 +123,37 @@ Em 03/11/2026 o usuário informou instalação do PHP v2 e configuração dos se
 Em 03/11/2026, após a homologação na prévia, o usuário autorizou commit, push, PR e merge da ponte no GitHub. O usuário ajustou a publicação para commit e push direto na main, sem PR nem branch nova no GitHub. O pacote de cache anterior permanece fora desta publicação; não foi solicitado novo deploy.
 
 Em 03/11/2026 o usuário autorizou publicar os arquivos locais restantes diretamente na main do GitHub. Incluídos código, instruções e evidências históricas do pacote WP REST Cache; sem instalação, configuração ou nova homologação remota nesta publicação.
+
+## 19. Unificação visual e políticas — preparação local
+
+Em 04/11/2026 o usuário autorizou auditoria e preparação local, proibindo alterações remotas e commit/push/merge/deploy. Preparadas quatro páginas legais React como minutas explícitas, links no footer e reconhecimento/HTML/SEO das rotas no Worker, com noindex de minutas e sem mudanças de configuração do Worker. Pacote wordpress/visual-integration prioriza Header Builder, HTML Blocks e condições nativas, com CSS isolado e loader de tema filho desativado. Instalação/configuração, revisão jurídica/comercial e homologação visual/operacional remotas seguem pendentes. Relatório: docs/visual-integration/report.md; procedimento: wordpress/visual-integration/README.md. Ponte v2, cache, pagamentos, frete, SMTP e DNS preservados.
+
+## 20. Tema filho WoodMart — componentes e ZIP local
+
+Em 04/11/2026 o usuário pediu tema filho versionado e ZIP, sem reconstrução manual no Elementor e sem alterações remotas/publicação. Preparado wordpress/pratika-amollar-child e ZIP em wordpress/releases, com header/footer PHP estáticos, assets locais, CSS Woo, menu mobile e URLs centralizadas. Template: woodmart confirmado pelo ZIP oficial XTemos. **Substituição global ainda bloqueada:** templates da versão instalada ausentes; pacote mantém header/footer do pai sem aplicar estilo parcial, até adaptador auditado. Fontes necessárias, procedimentos, validações e bloqueio da consulta FTP pela revisão automática estão em docs/child-theme/report.md e README do tema. Não declarar integração definitiva/checkout homologados. Ponte, cache, Worker, gateways, frete, SMTP, DNS e remoto intactos. Sem commit/push/merge/deploy.
+
+## 21. Consulta FTP autorizada e adaptador WoodMart 8.1.1
+
+Em 04/11/2026 o usuário autorizou abrir o FileZilla e verificar/copiar fontes do tema pai, confirmando /www/loja/wp-content/themes. Consulta/download somente leitura concluídos; pai woodmart 8.1.1 e filho padrão sem overrides PHP adicionais. Implementado adaptador ativo com wrappers/funções/callbacks reais e proteção por hashes normalizados LF/CRLF. ZIP novo: wordpress/releases/pratika-amollar-child-0.2.0.zip. Relatório atual: docs/child-theme/parent-audit.md; relatório da 0.1.0 permanece histórico. Typecheck/lint/build e 45 testes Node aprovados; 8 cenários locais de shell com funções reais do pai e APIs WP isoladas aprovados. Sem instalação/ativação remota, pedido/pagamento, commit/push/merge/deploy. Homologação visual e funcional de WordPress/plugins e publicação das políticas continuam pendentes de autorização separada.
+
+## 22. Navegação operacional e links definitivos
+
+Em 04/11/2026 preparados plugin independente pratika-operational-routing 0.1.0, tema filho 0.3.0 com links públicos definitivos e footer React no domínio principal. Plugin desativado por padrão, com duas flags, GET/HEAD HTML conservador, 302, proteção de operações/APIs/query técnicas e rollback sem banco. Usuário autorizou liberar redirects, mas confirmou que ainda trocará o apontamento; ativação condicionada ao React efetivamente servido no domínio principal. Nenhuma alteração remota, DNS, deploy ou Git. Políticas continuam minutas noindex, inclusive navegação client-side; Worker validado localmente por HTTP em 8 URLs. Typecheck/lint/build, 46 testes Node (matriz PHP 101 casos e 9 modos do adaptador) e 8 testes de shell pai aprovados. Relatório atual e pendências: docs/operational-routing/report.md; instalação: wordpress/pratika-operational-routing/README.md. Callbacks reais dos plugins instalados, origem definitiva da ponte e sandbox seguem pendentes; não presumir segurança operacional a partir de GET ou testes isolados.
+
+## 23. Correção simples de navegação pública
+
+Em 04/11/2026, após diagnóstico e autorização, substituído localmente o plugin de redirects por um único snippet wordpress/public-navigation.php, instalável em functions.php ou snippets existente. Sem constantes, novo plugin, ZIP ou alteração React/Worker/DNS. Regras 302 por objetos nativos: home/shop/cart, produto post_name e categoria slug, automaticamente para itens futuros, mais contato. Sem correspondência mantém WP. Preservados operações, query técnica, políticas locais e integrações; nenhuma dependência de cabeçalhos opcionais. Removidos artefatos locais do mecanismo anterior; nenhuma ação remota. Instalação/rollback e limites no relatório curto docs/operational-routing/report.md.
+
+## 24. Origem definitiva da ponte — diagnóstico e configuração
+
+Em 04/11/2026 confirmado no código: erro Origem inválida em pratika-cart-handoff.php compara HTTP_ORIGIN com PA_FRONTEND_ORIGIN, origem única definida externamente em wp-config.php. Instrução anterior ainda apontava workers.dev; corrigida docs/integration.md para https://pratikaamollar.com.br. Nenhuma mudança no código PHP/React/Worker/snippet, HMAC ou secrets. Valor remoto não inspecionado nem alterado: responsável deve substituir somente a constante existente. Worker assina origem da URL efetiva, PUBLIC_ORIGIN é SEO. Typecheck/lint/build e 47 testes aprovados; 14 cenários WP/Woo reais locais com origem definitiva aprovados, incluindo sessão, 303, itens/recarga, origem indevida, HMAC, prazo/replay. Laboratório/configuração local restaurada; não valida produção. Homologação real aguarda atualização autorizada da constante.
+
+## 25. Hero híbrido — carrossel local
+
+Em 04/11/2026 implementado wrapper independente reutilizando HomeHero intacto como primeiro slide. Banners publicados via coleção REST WordPress, URLs ACF desktop/mobile diretas, consulta única até 100 registros e sem cache persistente; falha/ausência mantém Hero. Autoplay 6s, controles, teclado, swipe e reduced-motion. Alt preservado, com fallback título da imagem, filename e marca conforme solicitado. Primeiro banner real ID 16164 inspecionado; Arrays ACF confirmados e arte mobile/desktop carregada em QA local. Typecheck/lint/build e 53 testes aprovados. Relatório, estratégia de atualização/paginação e limites de validação em docs/hero-carousel.md. Sem alteração remota ou commit/push/merge/deploy.
+
+Revisão do Hero em 04/11/2026: controles substituídos por bolinhas centralizadas, sem pausa manual; autoplay continua com hover/foco, preservando reduced-motion. Campo acf.link confirmado na resposta fornecida e aplicado à imagem quando URL HTTP(S) válida; vazio mantém imagem sem ação. Typecheck/lint/build e 54 testes aprovados. Preview apenas local, sem Git ou deploy.
+
+## 26. Consolidação e publicação autorizada
+
+Em 04/11/2026 o usuário autorizou commit, push, PR, merge e deploy, pedindo conferir paridade de main e Worker com todas as melhorias locais. Escopo, verificações e limites em docs/release-2026-11-04.md. Preservar wrangler.jsonc, PREVIEW=true, secrets e DNS. Pacotes WordPress são versionados, sem instalação remota; políticas permanecem minutas explícitas noindex.

@@ -4,77 +4,79 @@
     {
       "name": "simple quantity 3, new native session, checkout GET and reload",
       "passed": true,
-      "ms": 8674
+      "ms": 26307
     },
     {
       "name": "multiple items replace existing native cart; repeat tickets never accumulate",
       "passed": true,
-      "ms": 1245
+      "ms": 943
     },
     {
       "name": "one-use ticket replay is refused and does not change cart",
       "passed": true,
-      "ms": 985
+      "ms": 610
     },
     {
       "name": "expired ticket, tampered signature and wrong origin do not mutate session",
       "passed": true,
-      "ms": 1305
+      "ms": 927
     },
     {
       "name": "fixed variation and any-attribute variation retain chosen values",
       "passed": true,
-      "ms": 1892
+      "ms": 1061
     },
     {
       "name": "taxonomy display label and term name are resolved to original attribute slug",
       "passed": true,
-      "ms": 1219
+      "ms": 491
     },
     {
       "name": "variation mismatch and duplicate source rows are rejected",
       "passed": true,
-      "ms": 1412
+      "ms": 696
     },
     {
       "name": "changed price is recalculated on WooCommerce, not taken from ticket",
       "passed": true,
-      "ms": 3208
+      "ms": 3222
     },
     {
       "name": "out-of-stock transfer is rejected and prior native cart preserved",
       "passed": true,
-      "ms": 6774
+      "ms": 4734
     },
     {
       "name": "updated quantity and removed item transfer exact final selection",
       "passed": true,
-      "ms": 1467
+      "ms": 803
     },
     {
       "name": "partial insertion failure rolls back the previous native cart",
       "passed": true,
-      "ms": 8217
+      "ms": 4483
     },
     {
       "name": "active native session transfer lock rejects overlapping tickets",
       "passed": true,
-      "ms": 6989
+      "ms": 4253
     },
     {
       "name": "Store API source add/update/remove -> production Worker handoff -> native session",
       "passed": true,
-      "ms": 5040
+      "ms": 2786
     },
     {
       "name": "expired native session is re-established by a fresh ticket",
       "passed": true,
-      "ms": 3575
+      "ms": 2313
     }
   ],
   "cleanup": true,
   "stack": {
     "wp": "7.1.4",
     "woo": "11.2.1"
-  }
+  },
+  "frontendOrigin": "https://pratikaamollar.com.br",
+  "scope": "Disposable local WordPress/WooCommerce over loopback; not production validation"
 }

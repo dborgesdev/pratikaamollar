@@ -1,0 +1,61 @@
+{
+  "kind": "Local production build served by Vite/Cloudflare Worker runtime; HTTP direct access, no browser visual QA",
+  "results": [
+    {
+      "path": "/politica-de-privacidade",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/politica-de-privacidade",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/politica-de-privacidade/",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/politica-de-privacidade",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/termos-e-condicoes-de-compra",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/termos-e-condicoes-de-compra",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/termos-e-condicoes-de-compra/",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/termos-e-condicoes-de-compra",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/trocas-devolucoes-e-reembolsos",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/trocas-devolucoes-e-reembolsos",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/trocas-devolucoes-e-reembolsos/",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/trocas-devolucoes-e-reembolsos",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/entrega-e-frete",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/entrega-e-frete",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/entrega-e-frete/",
+      "status": 200,
+      "htmlDraft": true,
+      "canonical": "https://pratikaamollar.com.br/entrega-e-frete",
+      "robots": "noindex, nofollow"
+    }
+  ]
+}

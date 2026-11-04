@@ -1,0 +1,281 @@
+TAP version 13
+# {"scenario":"10 rapid adds","feedbackMs":1.96,"writes":1}
+# Subtest: adição é imediata e dez cliques viram uma escrita absoluta
+ok 1 - adição é imediata e dez cliques viram uma escrita absoluta
+  ---
+  duration_ms: 9.0139
+  type: 'test'
+  ...
+# Subtest: resposta antiga não apaga intenção mais recente; escritor único
+ok 2 - resposta antiga não apaga intenção mais recente; escritor único
+  ---
+  duration_ms: 7.8634
+  type: 'test'
+  ...
+# Subtest: remoção otimista pode ser revertida antes de ir ao servidor
+ok 3 - remoção otimista pode ser revertida antes de ir ao servidor
+  ---
+  duration_ms: 1.2848
+  type: 'test'
+  ...
+# Subtest: falha de estoque reverte, reconcilia e bloqueia handoff até conferência
+ok 4 - falha de estoque reverte, reconcilia e bloqueia handoff até conferência
+  ---
+  duration_ms: 2.9665
+  type: 'test'
+  ...
+# Subtest: respeita limite retornado pelo WooCommerce
+ok 5 - respeita limite retornado pelo WooCommerce
+  ---
+  duration_ms: 1.483
+  type: 'test'
+  ...
+# Subtest: timeout de adição não é repetido: GET recupera o item já aceito
+ok 6 - timeout de adição não é repetido: GET recupera o item já aceito
+  ---
+  duration_ms: 1.4629
+  type: 'test'
+  ...
+# Subtest: contato valida e formata nome e mensagem para o WhatsApp
+ok 7 - contato valida e formata nome e mensagem para o WhatsApp
+  ---
+  duration_ms: 2.073
+  type: 'test'
+  ...
+# Subtest: checkout trava novas intenções até terminar o handoff
+ok 8 - checkout trava novas intenções até terminar o handoff
+  ---
+  duration_ms: 1.7889
+  type: 'test'
+  ...
+# Subtest: catálogo real mantém 11 produtos, preços, atributos, variações e categorias oficiais
+ok 9 - catálogo real mantém 11 produtos, preços, atributos, variações e categorias oficiais
+  ---
+  duration_ms: 37.0041
+  type: 'test'
+  ...
+# Subtest: fallback de categoria não aceita origem externa nem inventa termos
+ok 10 - fallback de categoria não aceita origem externa nem inventa termos
+  ---
+  duration_ms: 1.0301
+  type: 'test'
+  ...
+# Subtest: Worker agrega duas coleções em paralelo e não guarda respostas entre visitas
+ok 11 - Worker agrega duas coleções em paralelo e não guarda respostas entre visitas
+  ---
+  duration_ms: 149.5315
+  type: 'test'
+  ...
+# Subtest: paginação recupera mais de cem produtos sem truncar
+ok 12 - paginação recupera mais de cem produtos sem truncar
+  ---
+  duration_ms: 86.8554
+  type: 'test'
+  ...
+# Subtest: falha WooCommerce é explícita, sem servir catálogo antigo
+ok 13 - falha WooCommerce é explícita, sem servir catálogo antigo
+  ---
+  duration_ms: 4.2846
+  type: 'test'
+  ...
+# Subtest: React deduplica inicialização concorrente e reutiliza dados nas rotas
+ok 14 - React deduplica inicialização concorrente e reutiliza dados nas rotas
+  ---
+  duration_ms: 2.7822
+  type: 'test'
+  ...
+# Subtest: catálogo do HTML de produto evita nova consulta no navegador
+ok 15 - catálogo do HTML de produto evita nova consulta no navegador
+  ---
+  duration_ms: 1.5997
+  type: 'test'
+  ...
+# Subtest: timeout libera loading e permite retry; resposta tardia não substitui dados novos
+ok 16 - timeout libera loading e permite retry; resposta tardia não substitui dados novos
+  ---
+  duration_ms: 52.5521
+  type: 'test'
+  ...
+# Subtest: erro de rede permite nova tentativa
+ok 17 - erro de rede permite nova tentativa
+  ---
+  duration_ms: 4.5014
+  type: 'test'
+  ...
+# Subtest: latência mantém loading até chegar dado essencial, sem nova chamada concorrente
+ok 18 - latência mantém loading até chegar dado essencial, sem nova chamada concorrente
+  ---
+  duration_ms: 39.0682
+  type: 'test'
+  ...
+# Subtest: menu mobile: progressive enhancement, abre por botão, fecha com Escape e devolve foco
+ok 19 - menu mobile: progressive enhancement, abre por botão, fecha com Escape e devolve foco
+  ---
+  duration_ms: 11.2298
+  type: 'test'
+  ...
+# Subtest: menu fecha ao navegar, clicar fora ou sair por teclado; desktop permanece visível
+ok 20 - menu fecha ao navegar, clicar fora ou sair por teclado; desktop permanece visível
+  ---
+  duration_ms: 8.2644
+  type: 'test'
+  ...
+# Subtest: handoff assina snapshot real, atributos e prazo, sem preço/token
+ok 21 - handoff assina snapshot real, atributos e prazo, sem preço/token
+  ---
+  duration_ms: 180.1694
+  type: 'test'
+  ...
+# Subtest: sessão ausente ou expirada, divergência, estoque e resposta inválida bloqueiam
+ok 22 - sessão ausente ou expirada, divergência, estoque e resposta inválida bloqueiam
+  ---
+  duration_ms: 39.4943
+  type: 'test'
+  ...
+# Subtest: origem externa não consulta Woo; corpo inválido e segredo fraco são recusados
+ok 23 - origem externa não consulta Woo; corpo inválido e segredo fraco são recusados
+  ---
+  duration_ms: 2.3331
+  type: 'test'
+  ...
+# Subtest: cliente só aceita destino e contrato fixos e não navega em falha
+ok 24 - cliente só aceita destino e contrato fixos e não navega em falha
+  ---
+  duration_ms: 5.8665
+  type: 'test'
+  ...
+# Subtest: minutas legais: acesso direto 200, conteúdo e SEO no HTML, noindex também fora da prévia
+ok 25 - minutas legais: acesso direto 200, conteúdo e SEO no HTML, noindex também fora da prévia
+  ---
+  duration_ms: 125.6665
+  type: 'test'
+  ...
+# Subtest: confirma adição só após resposta válida e dez cliques concorrentes não duplicam
+ok 26 - confirma adição só após resposta válida e dez cliques concorrentes não duplicam
+  ---
+  duration_ms: 33.4996
+  type: 'test'
+  ...
+# Subtest: resposta HTTP bem sucedida sem o item não confirma adição
+ok 27 - resposta HTTP bem sucedida sem o item não confirma adição
+  ---
+  duration_ms: 7.8837
+  type: 'test'
+  ...
+# Subtest: resposta malformada é rejeitada e reconciliada sem confirmação falsa
+ok 28 - resposta malformada é rejeitada e reconciliada sem confirmação falsa
+  ---
+  duration_ms: 1.556
+  type: 'test'
+  ...
+# Subtest: estoque recusado libera botão e uma tentativa explícita posterior envia uma unidade
+ok 29 - estoque recusado libera botão e uma tentativa explícita posterior envia uma unidade
+  ---
+  duration_ms: 4.9431
+  type: 'test'
+  ...
+# Subtest: POST ambíguo só vira sucesso se GET autoritativo confirma quantidade; não repete escrita
+ok 30 - POST ambíguo só vira sucesso se GET autoritativo confirma quantidade; não repete escrita
+  ---
+  duration_ms: 3.3481
+  type: 'test'
+  ...
+# Subtest: variação envia o ID correto e usa preço recebido do servidor, sem projetar preço do pai
+ok 31 - variação envia o ID correto e usa preço recebido do servidor, sem projetar preço do pai
+  ---
+  duration_ms: 10.0799
+  type: 'test'
+  ...
+# Subtest: falha de outro produto não apaga confirmação nem libera checkout indevidamente
+ok 32 - falha de outro produto não apaga confirmação nem libera checkout indevidamente
+  ---
+  duration_ms: 4.4523
+  type: 'test'
+  ...
+# Subtest: limite real de quantidade impede adição sem mudança de estoque
+ok 33 - limite real de quantidade impede adição sem mudança de estoque
+  ---
+  duration_ms: 1.0195
+  type: 'test'
+  ...
+# Subtest: galeria navega circularmente, sem índice inválido para imagem única
+ok 34 - galeria navega circularmente, sem índice inválido para imagem única
+  ---
+  duration_ms: 2.9191
+  type: 'test'
+  ...
+# Subtest: swipe exige intenção horizontal, preserva gestos verticais e movimentos curtos
+ok 35 - swipe exige intenção horizontal, preserva gestos verticais e movimentos curtos
+  ---
+  duration_ms: 1.7272
+  type: 'test'
+  ...
+# Subtest: metadados monetários incompletos não produzem confirmação de sucesso
+ok 36 - metadados monetários incompletos não produzem confirmação de sucesso
+  ---
+  duration_ms: 1.6763
+  type: 'test'
+  ...
+# Subtest: preview bloqueia indexação
+ok 37 - preview bloqueia indexação
+  ---
+  duration_ms: 75.0021
+  type: 'test'
+  ...
+# Subtest: proxy recusa endpoint arbitrário
+ok 38 - proxy recusa endpoint arbitrário
+  ---
+  duration_ms: 2.5442
+  type: 'test'
+  ...
+# Subtest: mutações recusam origem externa
+ok 39 - mutações recusam origem externa
+  ---
+  duration_ms: 1.915
+  type: 'test'
+  ...
+# Subtest: handoff sem configuração falha de forma explícita
+ok 40 - handoff sem configuração falha de forma explícita
+  ---
+  duration_ms: 2.9029
+  type: 'test'
+  ...
+# Subtest: proxy não aceita escrita em produtos
+ok 41 - proxy não aceita escrita em produtos
+  ---
+  duration_ms: 1.5435
+  type: 'test'
+  ...
+# Subtest: handoff assina itens do servidor sem expor token
+ok 42 - handoff assina itens do servidor sem expor token
+  ---
+  duration_ms: 49.7592
+  type: 'test'
+  ...
+# Subtest: cupons não estão expostos no React nem no proxy
+ok 43 - cupons não estão expostos no React nem no proxy
+  ---
+  duration_ms: 2.6513
+  type: 'test'
+  ...
+# Subtest: HTML condicional não vira resposta 200 vazia na recarga
+ok 44 - HTML condicional não vira resposta 200 vazia na recarga
+  ---
+  duration_ms: 5.8919
+  type: 'test'
+  ...
+# Subtest: bootstrap público é JSON válido e protege fechamento de script
+ok 45 - bootstrap público é JSON válido e protege fechamento de script
+  ---
+  duration_ms: 28.2038
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3663.378

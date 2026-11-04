@@ -1,0 +1,25 @@
+{
+  "files": 23,
+  "phpLint": [
+    "adapters\\footer.php",
+    "adapters\\header.php",
+    "footer.php",
+    "functions.php",
+    "header.php",
+    "inc\\chrome.php",
+    "inc\\compatibility.php",
+    "inc\\components.php",
+    "inc\\config.php",
+    "template-parts\\footer.php",
+    "template-parts\\header.php"
+  ],
+  "assetReferences": [
+    "../fonts/manrope-variable.woff2",
+    "../fonts/dm-serif-display-regular.woff2"
+  ],
+  "componentChecks": true,
+  "officialLogo": true,
+  "notes": [
+    "Component harness only; no WoodMart or payment integration executed."
+  ]
+}

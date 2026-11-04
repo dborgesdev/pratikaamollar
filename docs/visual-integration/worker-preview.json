@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "politica-de-privacidade",
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "draft": true,
+    "h1": "Política de Privacidade"
+  },
+  {
+    "slug": "termos-e-condicoes-de-compra",
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "draft": true,
+    "h1": "Termos e Condições de Compra"
+  },
+  {
+    "slug": "trocas-devolucoes-e-reembolsos",
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "draft": true,
+    "h1": "Política de Trocas, Devoluções e Reembolsos"
+  },
+  {
+    "slug": "entrega-e-frete",
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "draft": true,
+    "h1": "Política de Entrega e Frete"
+  }
+]

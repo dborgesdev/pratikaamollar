@@ -10,8 +10,8 @@ const base=process.env.PA_HANDOFF_TEST_BASE||'http://127.0.0.1:4193';
 if(!['127.0.0.1','localhost','[::1]'].includes(new URL(base).hostname)||process.env.PA_HANDOFF_TEST_ALLOW_MUTATIONS!=='1')throw Error('Disposable loopback lab opt-in required');
 const php=process.env.PA_HANDOFF_TEST_PHP||'php';const ini=process.env.PA_HANDOFF_TEST_PHP_INI;const args=ini?['-c',ini]:[];
 const op=(action,...values)=>JSON.parse(execFileSync(php,[...args,resolve('wordpress/tests/handoff-site.php'),action,...values.map(String)],{encoding:'utf8',env:process.env,timeout:180000}));
-const secret='local-handoff-disposable-secret-32-bytes-only',origin='http://localhost:4183';
-const report={environment:base,cases:[],cleanup:false};let fixture;
+const secret='local-handoff-disposable-secret-32-bytes-only',origin=process.env.PA_HANDOFF_TEST_ORIGIN||'http://localhost:4183';
+const report={environment:base,frontendOrigin:origin,cases:[],cleanup:false};let fixture;
 async function check(name,fn){const start=performance.now();await fn();report.cases.push({name,passed:true,ms:Math.round(performance.now()-start)});console.log('PASS',name);}
 function ticket(items,overrides={}){const now=Math.floor(Date.now()/1000);const payload=Buffer.from(JSON.stringify({v:2,iat:now,exp:now+90,jti:randomUUID(),aud:'pratika-checkout',origin,items,...overrides})).toString('base64url');return{action:'pa_handoff',payload,signature:createHmac('sha256',secret).update(payload).digest('base64url')};}
 let cookie='';

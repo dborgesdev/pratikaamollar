@@ -1,0 +1,38 @@
+{
+  "parentVersion": "8.1.1",
+  "kind": "Real parent layout functions with isolated WordPress API stubs; no database, checkout or gateway execution",
+  "results": [
+    {
+      "mode": "normal",
+      "passed": true
+    },
+    {
+      "mode": "admin",
+      "passed": true
+    },
+    {
+      "mode": "ajax",
+      "passed": true
+    },
+    {
+      "mode": "pjax",
+      "passed": true
+    },
+    {
+      "mode": "maintenance",
+      "passed": true
+    },
+    {
+      "mode": "early",
+      "passed": true
+    },
+    {
+      "mode": "line-endings",
+      "passed": true
+    },
+    {
+      "mode": "tampered",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+/* Presentation only: no selectors for iframe contents or payment plugin internals.
+ * Keep native grids, hooks, input names/IDs, radios, masks and AJAX overlays intact.
+ */
+.pa-child .woocommerce{font-family:Manrope,Arial,sans-serif;color:#1D1B17;line-height:1.7;overflow-wrap:anywhere}
+.pa-child .woocommerce h1,.pa-child .woocommerce h2,.pa-child .woocommerce-order h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-1px;color:#1D1B17}
+.pa-child .woocommerce h1{font-size:clamp(38px,4.5vw,65px);margin-bottom:32px}
+.pa-child .woocommerce h2{font-size:clamp(29px,3vw,37px);margin-bottom:24px}
+.pa-child .woocommerce h3{font-family:Manrope,Arial,sans-serif;font-weight:750;font-size:19px;line-height:1.4}
+.pa-child .woocommerce p{line-height:1.75}
+.pa-child .woocommerce a:not(.button){text-underline-offset:4px}
+.pa-child .woocommerce a:not(.button):hover{color:#955A09}
+.pa-child .woocommerce :focus-visible{outline:3px solid #D99A2B;outline-offset:4px}
+.pa-child .woocommerce form .form-row{margin-bottom:20px}
+.pa-child .woocommerce form .form-row label{font-weight:750;font-size:14px;line-height:1.6}
+.pa-child .woocommerce form input.input-text,.pa-child .woocommerce form textarea.input-text,.pa-child .woocommerce form select{font-family:Manrope,Arial,sans-serif;color:#24221d;background:#fff;border:1px solid #d7d1c5;border-radius:6px;min-height:48px;padding:13px 15px;box-shadow:none}
+.pa-child .woocommerce form textarea.input-text{resize:vertical}
+.pa-child .woocommerce form .woocommerce-invalid input.input-text,.pa-child .woocommerce form .woocommerce-invalid select{border-color:#9a3527}
+.pa-child .woocommerce .select2-container--default .select2-selection--single{background:#fff;border:1px solid #d7d1c5;border-radius:6px;min-height:48px}
+.pa-child .woocommerce .select2-container--default .select2-selection--single .select2-selection__rendered{line-height:46px;color:#24221d;padding-inline:15px}
+.pa-child .woocommerce .select2-container--default .select2-selection--single .select2-selection__arrow{height:46px}
+.pa-child .woocommerce button.button,.pa-child .woocommerce a.button,.pa-child .woocommerce input.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:Manrope,Arial,sans-serif;font-size:15px;font-weight:800;line-height:1.4;min-height:52px;padding:14px 23px;border:1px solid #F0B443;border-radius:6px;color:#171107;background:linear-gradient(115deg,#EDAF3B 0%,#D99A2B 58%,#C68418 100%);box-shadow:inset 0 1px 0 #FFE3A3B3,inset 0 -2px 0 #8D590933,0 4px 10px #713F071C;transition:background .2s,box-shadow .2s}
+.pa-child .woocommerce button.button:hover,.pa-child .woocommerce a.button:hover,.pa-child .woocommerce input.button:hover{color:#171107;background:linear-gradient(115deg,#F5C15D,#E8A22D);box-shadow:inset 0 1px 0 #FFECB8,0 7px 19px #C3832033}
+.pa-child .woocommerce button.button:active,.pa-child .woocommerce a.button:active{box-shadow:inset 0 2px 4px #71440D40}
+.pa-child .woocommerce button.button:disabled,.pa-child .woocommerce button.button.disabled{opacity:.48;cursor:not-allowed}
+.pa-child .woocommerce table.shop_table{border:1px solid #E4DFD5;border-radius:10px;background:#fff;border-collapse:separate}
+.pa-child .woocommerce table.shop_table th,.pa-child .woocommerce table.shop_table td{border-color:#E4DFD5;padding:16px;vertical-align:top}
+.pa-child .woocommerce table.shop_table th{font-weight:750}
+.pa-child .woocommerce .cart_totals,.pa-child .woocommerce .woocommerce-customer-details address{padding:28px;background:#F3EFE6;border:1px solid #DDD1BA;border-radius:10px;box-shadow:0 5px 18px #5E411108}
+.pa-child .woocommerce form.login,.pa-child .woocommerce form.register,.pa-child .woocommerce form.lost_reset_password{padding:28px;border:1px solid #DDD1BA;border-radius:10px;background:#fff}
+.pa-child .woocommerce .woocommerce-MyAccount-navigation a{display:block;min-height:44px;padding:13px 16px;border-bottom:1px solid #E4DFD5;font-weight:600}
+.pa-child .woocommerce .woocommerce-MyAccount-navigation .is-active a{color:#955A09;background:#F3EFE6;border-radius:6px}
+.pa-child .woocommerce .woocommerce-error,.pa-child .woocommerce .woocommerce-info,.pa-child .woocommerce .woocommerce-message{font-family:Manrope,Arial,sans-serif;border-radius:6px;line-height:1.7}
+.pa-child .woocommerce .woocommerce-error{background:#f8ece8;color:#782d20;border-color:#9a3527}
+.pa-child .woocommerce .woocommerce-info{background:#F3EFE6;color:#463a22;border-color:#955A09}
+.pa-child .woocommerce .woocommerce-message{background:#E9EFDF;color:#365221;border-color:#547236}
+.pa-child .woocommerce .woocommerce-error a,.pa-child .woocommerce .woocommerce-info a,.pa-child .woocommerce .woocommerce-message a{color:inherit;text-decoration:underline}
+.pa-child .woocommerce .woocommerce-privacy-policy-text,.pa-child .woocommerce .woocommerce-terms-and-conditions-wrapper{font-size:14px;line-height:1.75}
+/* Tracking plugin outside .woocommerce: controls only, not its DOM/validation. */
+.pa-child #search_tracking_code{font:450 16px Manrope,Arial,sans-serif;border:1px solid #d7d1c5;border-radius:6px;min-height:48px;padding:13px 15px;background:#fff;color:#24221d;max-width:100%}
+@media(max-width:767px){.pa-child .woocommerce form input.input-text,.pa-child .woocommerce form textarea.input-text,.pa-child .woocommerce form select{font-size:16px}.pa-child .woocommerce table.shop_table th,.pa-child .woocommerce table.shop_table td{padding:12px}.pa-child .woocommerce form.login,.pa-child .woocommerce form.register,.pa-child .woocommerce form.lost_reset_password,.pa-child .woocommerce .cart_totals{padding:23px}.pa-child .woocommerce button.button,.pa-child .woocommerce a.button{font-size:14px;padding-inline:18px}}
+@media(prefers-reduced-motion:reduce){.pa-child .woocommerce button.button,.pa-child .woocommerce a.button,.pa-child .woocommerce input.button{transition:none}}

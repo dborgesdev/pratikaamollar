@@ -24,10 +24,12 @@ Os registros `pa_transfer_*` e `pa_handoff_lock_*` são controles de segurança 
 
 ```php
 define('PA_HANDOFF_SECRET', 'SEGREDO_ALEATORIO_EXCLUSIVO');
-define('PA_FRONTEND_ORIGIN', 'https://pratikaamollar.smartlocal.workers.dev');
+define('PA_FRONTEND_ORIGIN', 'https://pratikaamollar.com.br');
 ```
 
 A origem precisa corresponder exatamente à usada pelo visitante (esquema, hostname e porta, sem caminho ou barra final). Para futura origem aprovada, ajustar essa constante antes da homologação. Não adicionar origem curinga. HTTP é recusado, exceto no laboratório loopback com `WP_ENVIRONMENT_TYPE=local`.
+
+Correção de origem no domínio definitivo (04/11/2026): no `wp-config.php` da instalação **loja**, substituir somente a definição existente de `PA_FRONTEND_ORIGIN` pelo domínio principal acima, antes de `wp-settings.php`. Não duplicar a constante nem alterar `PA_HANDOFF_SECRET`. O PHP v2 já usa essa configuração; não exige atualização de seu arquivo. A comparação do cabeçalho Origin e do origin assinado continua exata, preservando HMAC, prazo e uso único. `PUBLIC_ORIGIN` do Worker é usado em SEO; a origem do ticket vem da URL efetiva de `/api/handoff`, não dessa variável. Não alterar Worker/React ou o snippet de navegação para esta correção. O valor instalado remotamente precisa ser conferido pelo responsável, sem exibir o segredo.
 
 4. No projeto, configurar o **mesmo valor** via entrada interativa: `pnpm exec wrangler secret put HANDOFF_SECRET --name pratikaamollar`. Esta ação altera o ambiente remoto e **não foi executada**. Para teste local Worker, usar `.dev.vars` ignorado pelo Git. Nunca colocar segredo em `wrangler.jsonc`, bundle, documentação, comando com segredo literal ou Git.
 5. Garantir que POST para `/wp-admin/admin-post.php` não seja bloqueado, redirecionado ou armazenado por host/CDN/WAF. Não incluir receptor, carrinho, checkout, sessões ou respostas autenticadas em cache. Nenhuma alteração da solução de cache foi feita nesta tarefa; se a infraestrutura bloquear o receptor, a correção depende de autorização separada.
