@@ -157,3 +157,9 @@ Revisão do Hero em 04/11/2026: controles substituídos por bolinhas centralizad
 ## 26. Consolidação e publicação autorizada
 
 Em 04/11/2026 o usuário autorizou commit, push, PR, merge e deploy, pedindo conferir paridade de main e Worker com todas as melhorias locais. Escopo, verificações e limites em docs/release-2026-11-04.md. Preservar wrangler.jsonc, PREVIEW=true, secrets e DNS. Pacotes WordPress são versionados, sem instalação remota; políticas permanecem minutas explícitas noindex.
+
+## 27. Páginas legais — textos definitivos preparados localmente
+
+Em 06/11/2026 o responsável forneceu os quatro textos e identificação empresarial: Pratika Amollar, CNPJ 30.867.419/0001-06. Atualizados shared/legal.ts, apresentação React e HTML inicial do Worker, removendo avisos de minuta, pendências e referências técnicas do conteúdo destinado ao consumidor. Restituição segue o parágrafo específico do pedido inicial. Identificação nos quatro documentos; endereço comercial não autoriza devoluções. Preservados noindex, sitemap, wrangler.jsonc, footer e integrações. Typecheck/lint/build e 55 testes aprovados; quatro rotas locais por HTTP e navegação/layout desktop/mobile conferidos. Relatório: docs/legal-final-update.md. Sem commit, push, merge, deploy ou alteração remota; a versão publicada permanece anterior até autorização separada.
+
+Em seguida, em 06/11/2026, o usuário autorizou expressamente commit, push, PR, merge e deploy desta atualização das quatro páginas legais. Publicar build novo da main após merge, preservando noindex, sitemap, configuração do Worker, DNS, secrets e integrações. A autorização de publicação não libera indexação.
