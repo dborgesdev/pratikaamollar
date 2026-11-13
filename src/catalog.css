@@ -1,0 +1,8 @@
+/* Keep existing card UI; reserve equal price space and align purchase controls within each row. */
+.catalog-grid .product-price{margin-top:auto;min-height:84px;align-content:end}
+.catalog-grid .product-content>.add-control,.catalog-grid .product-content>.button{margin-top:0}
+.catalog-grid .product-content>.button{min-height:52px}
+.catalog-pagination{flex-wrap:wrap;gap:12px 18px}
+.catalog-pagination>span{text-align:center}
+.catalog-pagination button{min-height:44px}
+@media(max-width:480px){.catalog-pagination>span{flex-basis:100%;order:-1}}
