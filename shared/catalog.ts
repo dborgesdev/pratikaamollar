@@ -1,9 +1,10 @@
+import { productVideos } from '../src/lib/product-media';
 import type { Category, Picture, Product } from '../src/lib/types';
 export interface CatalogData { products: Product[]; categories: Category[] }
 export interface CatalogPayload extends CatalogData {
   meta: { source: 'woocommerce-store-api'; upstreamRequests: number; categoryFallbacks: number };
 }
-export type RawProduct = Product & { permalink?: string };
+export type RawProduct = Product & { permalink?: string; extensions?: { pratika_media?: unknown } };
 function picture(image: Picture, responsive: boolean): Picture {
   return { id: image.id, src: image.src, thumbnail: image.thumbnail || image.src, alt: image.alt || '', srcset: responsive ? image.srcset || '' : '', sizes: responsive ? image.sizes || '' : '' };
 }
@@ -30,10 +31,11 @@ export function normalizeCatalog(raw: RawProduct[], metadata: Category[], upstre
     assigned.forEach(category => category.count++);
     const unique = (product.images || []).filter((image, index, all) => all.findIndex(other => other.src === image.src) === index);
     return {
-      id: product.id, name: product.name, slug: product.slug, type: product.type,
+      id: product.id, name: product.name, slug: product.slug, type: product.type, on_sale: product.on_sale === true, average_rating: product.average_rating, review_count: product.review_count,
       description: product.description || '', short_description: product.short_description || '',
-      prices: { price: product.prices.price, regular_price: product.prices.regular_price, currency_code: product.prices.currency_code, currency_minor_unit: product.prices.currency_minor_unit },
+      prices: { price: product.prices.price, regular_price: product.prices.regular_price, sale_price: product.prices.sale_price, price_range: product.prices.price_range, currency_code: product.prices.currency_code, currency_minor_unit: product.prices.currency_minor_unit },
       images: unique.map((image, index) => picture(image, index === 0)),
+      videos: productVideos(product.extensions?.pratika_media, unique),
       is_in_stock: product.is_in_stock, is_purchasable: product.is_purchasable,
       categories: assigned, attributes: product.attributes || [], variations: product.variations || [],
     };

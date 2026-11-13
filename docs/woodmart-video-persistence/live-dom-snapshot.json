@@ -1,0 +1,38 @@
+{
+  "observedOn": "2026-11-13",
+  "productId": 15675,
+  "source": "DOM já carregado na edição administrativa; inspeção autorizada somente leitura",
+  "savedProduct": false,
+  "readDatabase": false,
+  "capturedAdministrativePost": false,
+  "fields": [
+    {
+      "order": 0,
+      "name": "xts-product-gallery-video[16068]",
+      "zone": "featured",
+      "form": "post",
+      "disabled": false,
+      "type": "hidden",
+      "currentEqualsInitial": true,
+      "videoType": "mp4",
+      "uploadVideoId": "",
+      "hasUploadUrl": false,
+      "hasYoutubeUrl": false,
+      "hasVimeoUrl": false
+    },
+    {
+      "order": 1,
+      "name": "xts-product-gallery-video[16068]",
+      "zone": "gallery",
+      "form": "post",
+      "disabled": false,
+      "type": "hidden",
+      "currentEqualsInitial": true,
+      "videoType": "mp4",
+      "uploadVideoId": "",
+      "hasUploadUrl": false,
+      "hasYoutubeUrl": false,
+      "hasVimeoUrl": false
+    }
+  ]
+}
