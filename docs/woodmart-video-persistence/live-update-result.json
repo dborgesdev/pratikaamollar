@@ -1,0 +1,31 @@
+{
+  "validatedOn": "2026-11-13",
+  "productId": 15675,
+  "authorizedProductUpdate": true,
+  "featuredImageId": 16068,
+  "imageIds": [
+    16068,
+    15923,
+    15937,
+    16072,
+    16069,
+    16062,
+    16060,
+    16064,
+    16066,
+    15931
+  ],
+  "uploadedVideoAttachmentId": 16201,
+  "videos": [
+    {
+      "attachment_id": 16068,
+      "type": "mp4",
+      "src": "https://loja.pratikaamollar.com.br/wp-content/uploads/2025/04/Maquina-de-afiar-alicate.mp4",
+      "poster": "https://loja.pratikaamollar.com.br/wp-content/uploads/2025/04/image-5-700x478.jpg",
+      "title": "Vídeo de Máquina De Afiar Alicate De Cutícula Completa A2X1 - Abrasiva"
+    }
+  ],
+  "adminReloadRecognizedVideo": true,
+  "capturedAdministrativePost": false,
+  "readRawProductionMeta": false
+}

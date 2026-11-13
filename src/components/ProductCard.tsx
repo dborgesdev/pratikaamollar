@@ -1,7 +1,10 @@
+import CardGallery from './CardGallery';
+import ProductPrice from './ProductPrice';
+import RatingSummary from './RatingSummary';
 import { Link } from 'react-router-dom';
 import type { Product } from '../lib/types';
-import { money, plain } from '../lib/api';
+import { plain } from '../lib/api';
 import AddToCart from './AddToCart';
 export default function ProductCard({ product: p }: { product: Product }) {
-  return <article className="product-card"><Link className="product-image" to={'/produto/' + p.slug}><img src={p.images[0]?.thumbnail || p.images[0]?.src} srcSet={p.images[0]?.srcset} sizes="(max-width: 600px) 90vw, (max-width: 1024px) 40vw, 300px" alt={plain(p.name)} loading="lazy" width="430" height="430"/></Link><div className="product-content"><small>{p.categories.map(c => c.name).join(' / ')}</small><Link className="product-name" to={'/produto/' + p.slug}>{plain(p.name)}</Link><strong className="price">{Number(p.prices.price) > 0 ? money(p.prices) : 'Consulte disponibilidade'}</strong>{p.is_purchasable && p.is_in_stock && p.type === 'simple' ? <AddToCart product={p}/> : <Link className="button outline" to={'/produto/' + p.slug}>Conhecer produto</Link>}</div></article>;
+  return <article className="product-card"><CardGallery product={p}/><div className="product-content"><small>{p.categories.map(c => c.name).join(' / ')}</small><Link className="product-name" to={'/produto/' + p.slug}>{plain(p.name)}</Link><RatingSummary product={p}/><ProductPrice product={p}/>{p.is_purchasable && p.is_in_stock && p.type === 'simple' ? <AddToCart product={p}/> : <Link className="button outline" to={'/produto/' + p.slug}>Conhecer produto</Link>}</div></article>;
 }

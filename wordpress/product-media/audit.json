@@ -1,0 +1,29 @@
+{
+  "auditedOn": "2026-11-13",
+  "themeVersion": "8.1.1",
+  "source": "Backup local da própria loja de 2026-11-04; fontes privadas ignoradas em .wrangler/woodmart-video-audit",
+  "currentPublicFrontendScriptMatches": true,
+  "remotePhpDownloaded": false,
+  "files": [
+    {
+      "file": "class-main.php",
+      "sha256": "c8efd7485580e66b4992a0596c35cacda2d29c701173591ba9cbdc9ba20e838f"
+    },
+    {
+      "file": "popup.php",
+      "sha256": "83c860bf275d0c69e56aeb7d25ad552affab9c200029c9fd5cdfa0b83312707e"
+    },
+    {
+      "file": "admin-productGalleryVideo.js",
+      "sha256": "61b07f3c54e6df3248a8e23d86daa777b5bce817631d0b3a8ed31cd9e7f5c10a"
+    },
+    {
+      "file": "productGalleryVideo.js",
+      "sha256": "6a8a660c7c26843ce59caa4c0dafd8fbed57e7bdd59b7e76de862e75d2bfc107"
+    },
+    {
+      "file": "style.css",
+      "sha256": "cb7bb3767607653963595577b099cb05a26759c8902e246dd10c7dd9f6589a6c"
+    }
+  ]
+}
