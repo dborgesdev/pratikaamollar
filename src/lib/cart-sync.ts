@@ -59,7 +59,7 @@ export class CartSync {
     const existing = this.confirmedAdds.get(product.id);
     if (existing) return existing;
     const operation = Promise.resolve().then(async () => {
-      if (this.locked) throw new Error('Aguarde a conclusão do checkout.');
+      if (this.locked) throw new Error('Aguarde a finalização da compra.');
       if (!this.confirmed) throw new Error('O carrinho ainda está conectando. Tente novamente.');
       if (!Number.isInteger(quantity) || quantity < 1) throw new Error('Informe uma quantidade válida.');
       if (!product.is_in_stock || !product.is_purchasable) throw new Error('Produto indisponível para compra.');

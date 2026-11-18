@@ -33,5 +33,6 @@ test('cliente só aceita destino e contrato fixos e não navega em falha',async(
  const cart={items};let sent;
  const accepted=await checkoutTransfer(cart,async(url,options)=>{sent=JSON.parse(options.body);return Response.json({action:'https://loja.pratikaamollar.com.br/wp-admin/admin-post.php',fields:{action:'pa_handoff',payload:'abc',signature:'a'.repeat(43)}});});assert.match(accepted.action,/admin-post.php$/);assert.deepEqual(sent.items,items.map(({key,id,quantity})=>({key,id,quantity})));
  await assert.rejects(checkoutTransfer(cart,async()=>Response.json({message:'Sessão expirada'},{status:409})),/Sessão expirada/);
+ await assert.rejects(checkoutTransfer(cart,async()=>Response.json({},{status:503})),/Não foi possível prosseguir para o pagamento\. Seu carrinho está preservado\. Tente novamente\./);
  await assert.rejects(checkoutTransfer(cart,async()=>Response.json({action:'https://evil.test',fields:{}})),/Transferência inválida/);assert.equal(cart.items,items);
 });
